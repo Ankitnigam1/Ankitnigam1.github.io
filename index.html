@@ -123,12 +123,21 @@ body.busy .hint{visibility:hidden}
 .role-card span{display:block;transition:opacity .3s ease,transform .3s ease}
 .p-lede{margin-top:18px;font-size:16.5px;line-height:1.6;color:#3c4741;max-width:52ch}
 .p-photo{border-radius:22px;overflow:hidden;position:relative;min-height:340px;background:linear-gradient(180deg,#14503a,#9fd8bf)}
-.p-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;position:absolute;inset:0}
+.p-photo img,.p-photo video{width:100%;height:100%;object-fit:cover;object-position:50% 0;position:absolute;inset:0}
 .p-photo .cap{position:absolute;left:12px;right:12px;bottom:12px;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700;letter-spacing:.06em}
 .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
 .proof .cell{border-radius:18px;padding:20px 18px}
 .proof .num{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--accent);line-height:1}
 .proof .lab{margin-top:8px;font-size:13px;line-height:1.45;color:#3c4741;font-weight:600}
+/* ================= SKILLS ================= */
+.skills-list{margin-top:30px;border-top:1px solid rgba(46,94,78,.18)}
+.skill-row{display:grid;grid-template-columns:52px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.18);align-items:baseline}
+.skill-row .no{font-family:'Fraunces',serif;font-size:15px;font-weight:800;color:var(--accent);opacity:.65}
+.skill-row h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.skill-row p{grid-column:2;margin-top:5px;font-size:14.5px;line-height:1.6;color:#3c4741;max-width:64ch}
+.skill-row .lvl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(46,94,78,.35);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.tools-strip{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools-strip .tl{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#5a665f;margin-right:4px}
 .p-sec{margin-top:74px}
 .p-sec h2{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(30px,4.4vw,46px);line-height:1.08}
 .p-sec .sub{margin-top:10px;color:#3c4741;font-size:15.5px;line-height:1.6;max-width:62ch}
@@ -222,6 +231,9 @@ body.busy .hint{visibility:hidden}
   .gal-play{width:74px;height:74px;font-size:28px}
   .gal-cap{font-size:14px}
   .t-row{grid-template-columns:1fr;gap:6px}
+  .skill-row{grid-template-columns:30px 1fr;padding:18px 2px}
+  .skill-row .lvl{grid-column:2;justify-self:start;margin-top:8px}
+  .skill-row p{grid-column:2}
   .cta{padding:34px 20px}
 }
 @media (min-width:821px) and (max-width:1100px){
@@ -307,7 +319,7 @@ body.busy .hint{visibility:hidden}
       <button class="btn btn-exit" id="btnExit" type="button">← my studio</button>
       <div class="brand">ANKIT&nbsp;NIGAM</div>
       <nav>
-        <a href="#g-caroline" data-scroll>Work</a><a href="#services" data-scroll>Services</a>
+        <a href="#g-caroline" data-scroll>Work</a><a href="#skills" data-scroll>Skills</a><a href="#services" data-scroll>Services</a>
         <a href="#story" data-scroll>Story</a><a href="#contact" data-scroll>Contact</a>
       </nav>
       <a class="btn btn-solid" href="#contact" data-scroll>Hire me</a>
@@ -318,14 +330,14 @@ body.busy .hint{visibility:hidden}
         <div class="p-kicker">Social Media · AI Content · Video</div>
         <h1>Hi, I'm Ankit.<br />I am a</h1>
         <div class="role-card"><span id="roleText">Social Media Manager</span></div>
-        <p class="p-lede">I grow pages and build AI content that people actually watch — from an AI influencer who reached 75.7K followers in a month, to a local shop reel seen 32.4 million times.</p>
+        <p class="p-lede">Hi, I'm Ankit Nigam — a Social Media Manager and AI Content Creator from Delhi. For 3+ years I've grown pages, edited videos and built hyper-realistic AI influencers — including Caroline Langford, who reached 75.7K followers in her first month. I turn ideas into content people actually stop for.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
           <a class="btn btn-solid" href="#g-caroline" data-scroll>See the work</a>
           <a class="btn btn-ghost" href="#contact" data-scroll>Discuss a project</a>
         </div>
       </div>
       <div class="p-photo glass">
-        <img src="assets/asset-001.jpg" alt="Ankit Nigam in his green studio, holding a laptop" />
+        <video id="aboutVid" src="assets/asset-002.mp4" poster="assets/asset-003.jpg" autoplay muted loop playsinline preload="auto" oncontextmenu="return false" aria-label="Ankit Nigam at his desk, typing on his laptop"></video>
         <div class="cap glass">ANKIT NIGAM — DELHI · AI CREATOR</div>
       </div>
     </section>
@@ -335,6 +347,23 @@ body.busy .hint{visibility:hidden}
       <div class="cell glass"><div class="num">32.4M</div><div class="lab">views on one reel — Patiala Touch</div></div>
       <div class="cell glass"><div class="num">400 → 10K</div><div class="lab">followers in 1 month — Patiala Touch</div></div>
       <div class="cell glass"><div class="num">₹2 lakh</div><div class="lab">first website sold — built at the start of the journey</div></div>
+    </section>
+
+    <section class="p-sec" id="skills">
+      <div class="p-kicker">Skills &amp; Expertise</div>
+      <h2>What I do</h2>
+      <p class="sub">Everything a page or brand needs to grow — created, edited and managed by one person, end to end.</p>
+      <div class="skills-list">
+        <div class="skill-row"><span class="no">01</span><h3>AI Content Creation</h3><span class="lvl">Expert</span><p>Hyper-realistic AI video and photo generation, and AI influencers built end to end — face, wardrobe, locations, captions, posting rhythm. Proof: Caroline Langford, 75.7K followers in her first month.</p></div>
+        <div class="skill-row"><span class="no">02</span><h3>Video Editing</h3><span class="lvl">Expert</span><p>Reels, promos and ads cut for retention — hooks, kinetic typography and pacing — in CapCut and AI tools, for clients in India, the US and Germany.</p></div>
+        <div class="skill-row"><span class="no">03</span><h3>Social Media Management</h3><span class="lvl">Expert</span><p>Strategy, growth and scheduling for pages and brands. Proof: Patiala Touch — 400 → 10K followers in one month, powered by a reel seen 32.4 million times.</p></div>
+        <div class="skill-row"><span class="no">04</span><h3>Graphic Design</h3><span class="lvl">Advanced</span><p>Posters, e-book covers and brand creatives in Canva and AI — including the full 13-book Grandparent's Ultimate Bundle collection.</p></div>
+        <div class="skill-row"><span class="no">05</span><h3>Prompt Engineering</h3><span class="lvl">Strong</span><p>Image and video prompts that hold a face, an outfit and a whole world consistent across an entire campaign — not just one lucky frame.</p></div>
+        <div class="skill-row"><span class="no">06</span><h3>Content Writing</h3><span class="lvl">Strong</span><p>Scripts, hooks, captions and ad copy written to make people stop scrolling — and stay.</p></div>
+        <div class="skill-row"><span class="no">07</span><h3>AI Tools &amp; Workflow</h3><span class="lvl">Advanced</span><p>A daily AI stack for generation, editing and design — with ComfyUI at working-knowledge level for custom workflows.</p></div>
+        <div class="skill-row"><span class="no">08</span><h3>Client Dealing</h3><span class="lvl">Strong</span><p>Briefs, delivery and communication handled personally — the same person who makes the work answers your messages.</p></div>
+      </div>
+      <div class="tools-strip"><span class="tl">Tools I use</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">Google Flow / Veo 3</span><span class="chip">Seedance</span><span class="chip">CapCut</span><span class="chip">Canva</span><span class="chip">ComfyUI</span></div>
     </section>
 
     <section class="p-sec" id="services">
@@ -708,124 +737,138 @@ function I(src, cap){ return {t:'i', src:src, cap:cap}; }
 var GALLERIES = [
 { id:'g-caroline', tag:'AI Influencer · Instagram', title:'Caroline Langford',
   desc:'My first AI model — an influencer built and run end to end: face, wardrobe, locations, captions and posting rhythm. Every photo and video of her work, in one place — use the side arrows to go through all of it.',
-  stats:['75.7K followers / 1 month','Millions of views','16 photos · 3 videos'],
+  stats:['75.7K followers / 1 month','Millions of views','17 photos · 3 videos'],
   items:[
-    V('assets/asset-002.mp4','assets/asset-003.jpg','Fashion-show walk — video'),
-    I('assets/asset-004.jpg','Garden editorial — embellished gown'),
-    I('assets/asset-005.jpg','Red gown — street fashion show'),
-    V('assets/asset-003.mp4','assets/asset-006.jpg','Office scene — video'),
-    I('assets/asset-007.jpg','Café lifestyle shot'),
-    I('assets/asset-008.jpg','Night street portrait'),
-    I('assets/asset-009.jpg','Café table — lifestyle content'),
-    I('assets/asset-010.jpg','On her phone — candid moment'),
-    V('assets/asset-004.mp4','assets/asset-011.jpg','Stage interview — video'),
-    I('assets/asset-012.jpg','Black off-shoulder street look'),
-    I('assets/asset-013.jpg','Outdoor portrait — maroon top'),
-    I('assets/asset-014.jpg','Bouquet portrait'),
-    I('assets/asset-015.jpg','Product-in-hand lifestyle shot'),
-    I('assets/asset-016.jpg','Brick-lane look — all black'),
-    I('assets/asset-017.jpg','Close portrait — red top'),
-    I('assets/asset-018.jpg','Mirror selfie'),
-    I('assets/asset-019.jpg','Garden portrait — maroon halter'),
-    I('assets/asset-020.jpg','Sporty look — black cap'),
-    I('assets/asset-021.jpg','Rose garden — rust top')
+    I('assets/asset-004.jpg','Caroline Langford — studio portrait, sequin butterfly top'),
+    V('assets/asset-003.mp4','assets/asset-005.jpg','Fashion-show walk — video'),
+    I('assets/asset-006.jpg','Garden editorial — embellished gown'),
+    I('assets/asset-007.jpg','Red gown — street fashion show'),
+    V('assets/asset-004.mp4','assets/asset-008.jpg','Office scene — video'),
+    I('assets/asset-009.jpg','Café lifestyle shot'),
+    I('assets/asset-010.jpg','Night street portrait'),
+    I('assets/asset-011.jpg','Café table — lifestyle content'),
+    I('assets/asset-012.jpg','On her phone — candid moment'),
+    V('assets/asset-005.mp4','assets/asset-013.jpg','Stage interview — video'),
+    I('assets/asset-014.jpg','Black off-shoulder street look'),
+    I('assets/asset-015.jpg','Outdoor portrait — maroon top'),
+    I('assets/asset-016.jpg','Bouquet portrait'),
+    I('assets/asset-017.jpg','Product-in-hand lifestyle shot'),
+    I('assets/asset-018.jpg','Brick-lane look — all black'),
+    I('assets/asset-019.jpg','Close portrait — red top'),
+    I('assets/asset-020.jpg','Mirror selfie'),
+    I('assets/asset-021.jpg','Garden portrait — maroon halter'),
+    I('assets/asset-022.jpg','Sporty look — black cap'),
+    I('assets/asset-023.jpg','Rose garden — rust top')
   ]},
 { id:'g-vaani', tag:'AI Model · Brand Work', title:'Vaani Garg',
   desc:'An AI model created for brand work — jewellery, beauty, saree and editorial shoots, delivered as photo and video campaigns. Her full WORK gallery plus her 360° turn.',
   stats:['15 brand shoots','Photo + video','360° turn'],
   items:[
-    V('assets/asset-005.mp4','assets/asset-022.jpg','Vaani — 360° turn video'),
-    I('assets/asset-023.jpg','Yunjac cream — product in hand'),
-    I('assets/asset-024.jpg','Yunjac cream — application shot'),
-    I('assets/asset-025.jpg','Dior lipstick — beauty shot'),
-    I('assets/asset-026.jpg','Hazoorilal — jewellery campaign'),
-    I('assets/asset-027.jpg','Kalyan Jewellers — campaign'),
-    I('assets/asset-028.jpg','Party lehenga — collage'),
-    I('assets/asset-029.jpg','Party-wear saree'),
-    I('assets/asset-030.jpg','Ethnos — royal blue saree'),
-    I('assets/asset-031.jpg','Khush Magazine — cover'),
-    I('assets/asset-032.jpg','Elegance — pink saree'),
-    I('assets/asset-033.jpg','Pink lehenga — close-up'),
-    I('assets/asset-034.jpg','Von Dutch — airport look'),
-    I('assets/asset-035.jpg','Von Dutch — vending shoot'),
-    I('assets/asset-036.jpg','Von Dutch — vending, side look'),
-    I('assets/asset-037.jpg','Variety — interview shoot')
+    I('assets/asset-024.jpg','Vaani Garg — studio headshot, red top'),
+    V('assets/asset-006.mp4','assets/asset-025.jpg','Vaani — 360° turn video'),
+    I('assets/asset-026.jpg','Yunjac cream — product in hand'),
+    I('assets/asset-027.jpg','Yunjac cream — application shot'),
+    I('assets/asset-028.jpg','Dior lipstick — beauty shot'),
+    I('assets/asset-029.jpg','Hazoorilal — jewellery campaign'),
+    I('assets/asset-030.jpg','Kalyan Jewellers — campaign'),
+    I('assets/asset-031.jpg','Party lehenga — collage'),
+    I('assets/asset-032.jpg','Party-wear saree'),
+    I('assets/asset-033.jpg','Ethnos — royal blue saree'),
+    I('assets/asset-034.jpg','Khush Magazine — cover'),
+    I('assets/asset-035.jpg','Elegance — pink saree'),
+    I('assets/asset-036.jpg','Pink lehenga — close-up'),
+    I('assets/asset-037.jpg','Von Dutch — airport look'),
+    I('assets/asset-038.jpg','Von Dutch — vending shoot'),
+    I('assets/asset-039.jpg','Von Dutch — vending, side look'),
+    I('assets/asset-040.jpg','Variety — interview shoot')
+  ]},
+{ id:'g-genie', tag:'AI Model · AI-Generated', title:'Genie',
+  desc:'An AI-generated model created by me — hyper-realistic studio portraiture, styled and directed end to end. Her gallery starts here; more of her shoots will be added as they are made.',
+  stats:['Height 5\u20325\u2033','Age 21','Female','Indian · Based in India'],
+  items:[
+    I('assets/asset-041.jpg','Genie — studio portrait, black sequin look')
+  ]},
+{ id:'g-shrishti', tag:'AI Model · AI-Generated', title:'Shrishti',
+  desc:'An AI-generated model created by me — hyper-realistic studio portraiture, styled and directed end to end. Her gallery starts here; more of her shoots will be added as they are made.',
+  stats:['Height 5\u20322\u2033','Age 27','Female','Indian · Based in India'],
+  items:[
+    I('assets/asset-042.jpg','Shrishti — studio portrait, cream & pink traditional look')
   ]},
 { id:'g-ember', tag:'AI Film · World & Character Design', title:'The Last Ember',
   desc:'An AI movie built shot by shot — character sheets, locations, equipment and a fire drake, held consistent across the whole world. Watch the snow-scene clip, then flip through the design sheets.',
   stats:['Character design','Full world building','2026'],
   items:[
-    V('assets/asset-006.mp4','assets/asset-038.jpg','The Last Ember — snow-scene clip'),
-    I('assets/asset-039.jpg','Eren Vale — character sheet'),
-    I('assets/asset-040.jpg','Kael Arden — character sheet'),
-    I('assets/asset-041.jpg','Mara Holt — character sheet'),
-    I('assets/asset-042.jpg','Sera Venn — character sheet'),
-    I('assets/asset-043.jpg','Sera Venn — grey look'),
-    I('assets/asset-044.jpg','Iven Marr — character sheet'),
-    I('assets/asset-045.jpg','Tovan Reed — character sheet'),
-    I('assets/asset-046.jpg','The Keeper — character sheet'),
-    I('assets/asset-047.jpg','Veyr — the fire drake'),
-    I('assets/asset-048.jpg','Veyr — drake raised'),
-    I('assets/asset-049.jpg','Veyr — saddle design'),
-    I('assets/asset-050.jpg','Equipment sheet'),
-    I('assets/asset-043.jpg','Locations sheet'),
-    I('assets/asset-051.jpg','The Quarry of the Dead — location'),
-    I('assets/asset-052.jpg','Continuity sheet — holding the world together')
+    V('assets/asset-007.mp4','assets/asset-043.jpg','The Last Ember — snow-scene clip'),
+    I('assets/asset-044.jpg','Eren Vale — character sheet'),
+    I('assets/asset-045.jpg','Kael Arden — character sheet'),
+    I('assets/asset-046.jpg','Mara Holt — character sheet'),
+    I('assets/asset-047.jpg','Sera Venn — character sheet'),
+    I('assets/asset-048.jpg','Sera Venn — grey look'),
+    I('assets/asset-049.jpg','Iven Marr — character sheet'),
+    I('assets/asset-050.jpg','Tovan Reed — character sheet'),
+    I('assets/asset-051.jpg','The Keeper — character sheet'),
+    I('assets/asset-052.jpg','Veyr — the fire drake'),
+    I('assets/asset-053.jpg','Veyr — drake raised'),
+    I('assets/asset-054.jpg','Veyr — saddle design'),
+    I('assets/asset-055.jpg','Equipment sheet'),
+    I('assets/asset-048.jpg','Locations sheet'),
+    I('assets/asset-056.jpg','The Quarry of the Dead — location'),
+    I('assets/asset-057.jpg','Continuity sheet — holding the world together')
   ]},
 { id:'g-editing', tag:'Video Editing · Client Work', title:'Video Editing — Edited Videos',
   desc:'All my edited videos in one slider — sales explainers, coaching promos, ads and reels for clients in India, the US and Germany. Press the side arrows to go from one edited video to the next. (Short previews, up to ~60 seconds each.)',
   stats:['9 edited videos','Ads · Promos · Reels','India · US · Germany'],
   items:[
-    V('assets/asset-007.mp4','assets/asset-053.jpg','Sales explainer — kinetic typography'),
-    V('assets/asset-008.mp4','assets/asset-054.jpg','ICF coaching — promo'),
-    V('assets/asset-009.mp4','assets/asset-055.jpg','ICF coaching — short cut'),
-    V('assets/asset-010.mp4','assets/asset-056.jpg','NEET — admission ad'),
-    V('assets/asset-011.mp4','assets/asset-057.jpg','NEET coaching — promo'),
-    V('assets/asset-012.mp4','assets/asset-058.jpg','German health reel'),
-    V('assets/asset-013.mp4','assets/asset-059.jpg','Hindi education promo'),
-    V('assets/asset-014.mp4','assets/asset-060.jpg','CA firm — enquiries ad'),
-    V('assets/asset-015.mp4','assets/asset-061.jpg','Tech presenter — iPhone')
+    V('assets/asset-008.mp4','assets/asset-058.jpg','Sales explainer — kinetic typography'),
+    V('assets/asset-009.mp4','assets/asset-059.jpg','ICF coaching — promo'),
+    V('assets/asset-010.mp4','assets/asset-060.jpg','ICF coaching — short cut'),
+    V('assets/asset-011.mp4','assets/asset-061.jpg','NEET — admission ad'),
+    V('assets/asset-012.mp4','assets/asset-062.jpg','NEET coaching — promo'),
+    V('assets/asset-013.mp4','assets/asset-063.jpg','German health reel'),
+    V('assets/asset-014.mp4','assets/asset-064.jpg','Hindi education promo'),
+    V('assets/asset-015.mp4','assets/asset-065.jpg','CA firm — enquiries ad'),
+    V('assets/asset-016.mp4','assets/asset-066.jpg','Tech presenter — iPhone')
   ]},
 { id:'g-design', tag:'Graphic Design · E-books', title:'Graphic Design & E-books',
   desc:'Design work in one slider — the full 13-book Grandparent\u2019s Ultimate Bundle collection (covers I designed and laid out) plus brand posts for Chaitanya Wellness.',
   stats:['13 e-book covers','Collection poster','Brand posts'],
   items:[
-    I('assets/asset-062.jpg','The Grandparent\u2019s Ultimate Bundle — all 13 books'),
-    I('assets/asset-063.jpg','Words That Will Outlive Me — cover'),
-    I('assets/asset-064.jpg','Sealed With Love — cover'),
-    I('assets/asset-065.jpg','The Grandparent & Me Activity Book — cover'),
-    I('assets/asset-066.jpg','Whispers for Bedtime — cover'),
-    I('assets/asset-067.jpg','The Life That Made Me — cover'),
-    I('assets/asset-068.jpg','Twelve Things I Need You to Know — cover'),
-    I('assets/asset-069.jpg','The Sleep Whisperer — cover'),
-    I('assets/asset-070.jpg','First Steps, First Words — cover'),
-    I('assets/asset-071.jpg','What Changed Since We Raised Babies — bundle bonus cover'),
-    I('assets/asset-072.jpg','First Foods, Happy Tummies — bundle bonus cover'),
-    I('assets/asset-073.jpg','When Baby Is Sick — bundle bonus cover'),
-    I('assets/asset-074.jpg','Everyday Care Done Right — bundle bonus cover'),
-    I('assets/asset-075.jpg','How to Help Without Overstepping — bundle bonus cover'),
-    I('assets/asset-076.jpg','Chaitanya Wellness — acne & PCOS post'),
-    I('assets/asset-077.jpg','Chaitanya Wellness — PCOD post')
+    I('assets/asset-067.jpg','The Grandparent\u2019s Ultimate Bundle — all 13 books'),
+    I('assets/asset-068.jpg','Words That Will Outlive Me — cover'),
+    I('assets/asset-069.jpg','Sealed With Love — cover'),
+    I('assets/asset-070.jpg','The Grandparent & Me Activity Book — cover'),
+    I('assets/asset-071.jpg','Whispers for Bedtime — cover'),
+    I('assets/asset-072.jpg','The Life That Made Me — cover'),
+    I('assets/asset-073.jpg','Twelve Things I Need You to Know — cover'),
+    I('assets/asset-074.jpg','The Sleep Whisperer — cover'),
+    I('assets/asset-075.jpg','First Steps, First Words — cover'),
+    I('assets/asset-076.jpg','What Changed Since We Raised Babies — bundle bonus cover'),
+    I('assets/asset-077.jpg','First Foods, Happy Tummies — bundle bonus cover'),
+    I('assets/asset-078.jpg','When Baby Is Sick — bundle bonus cover'),
+    I('assets/asset-079.jpg','Everyday Care Done Right — bundle bonus cover'),
+    I('assets/asset-080.jpg','How to Help Without Overstepping — bundle bonus cover'),
+    I('assets/asset-081.jpg','Chaitanya Wellness — acne & PCOS post'),
+    I('assets/asset-082.jpg','Chaitanya Wellness — PCOD post')
   ]},
 { id:'g-patiala', tag:'Client Growth · Men\u2019s Wear', title:'Patiala Touch',
   desc:'A men\u2019s wear shop taken from 400 to 10K followers in one month — powered by one reel that reached 32.4 million views. The insights recording and the result screenshots, in one slider.',
   stats:['400 → 10K / 1 month','32.4M-view reel'],
   items:[
-    V('assets/asset-016.mp4','assets/asset-078.jpg','Follower insights — screen recording'),
-    I('assets/asset-079.jpg','Patiala Touch — profile header'),
-    I('assets/asset-080.jpg','Profile grid'),
-    I('assets/asset-081.jpg','Breakout reel insights — 32.4M views'),
-    I('assets/asset-082.jpg','Reel insights')
+    V('assets/asset-017.mp4','assets/asset-083.jpg','Follower insights — screen recording'),
+    I('assets/asset-084.jpg','Patiala Touch — profile header'),
+    I('assets/asset-085.jpg','Profile grid'),
+    I('assets/asset-086.jpg','Breakout reel insights — 32.4M views'),
+    I('assets/asset-087.jpg','Reel insights')
   ]},
 { id:'g-facebook', tag:'Video Editing · Facebook Pages', title:'Facebook Pages — US Audience',
   desc:'Reels produced and edited for family-niche Facebook pages, plus growth on my own profile. The result screenshots, page by page.',
   stats:['573K views / 30 days','1.4M-view reel','30K personal followers'],
   items:[
-    I('assets/asset-083.jpg','The Family with Baby — 573K views in 30 days'),
-    I('assets/asset-084.jpg','The Family with Baby — top reels'),
-    I('assets/asset-085.jpg','Try New Things — 1.4M-view reel'),
-    I('assets/asset-086.jpg','Entertainment & Knowledge — 179K-view reel'),
-    I('assets/asset-087.jpg','Personal profile — 30K followers')
+    I('assets/asset-088.jpg','The Family with Baby — 573K views in 30 days'),
+    I('assets/asset-089.jpg','The Family with Baby — top reels'),
+    I('assets/asset-090.jpg','Try New Things — 1.4M-view reel'),
+    I('assets/asset-091.jpg','Entertainment & Knowledge — 179K-view reel'),
+    I('assets/asset-092.jpg','Personal profile — 30K followers')
   ]}
 ];
 var galMount = $('#galleries'), galObjs = [], activeGal = null;
@@ -929,6 +972,18 @@ function show(obj, i){
 }
 function go(obj, dir){ show(obj, obj.i + dir); }
 buildGalleries();
+
+/* skills: gentle rise-in as each row scrolls into view (content stays readable if this never runs) */
+if(!RM && 'IntersectionObserver' in window){
+  var skIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target; skIO.unobserve(el);
+      el.animate([{opacity:0,transform:'translateY(16px)'},{opacity:1,transform:'translateY(0px)'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});
+    });
+  }, {root: portfolio, threshold: 0.25});
+  $all('.skill-row').forEach(function(r, i){ r.style.animationDelay = '0ms'; skIO.observe(r); });
+}
 
 trans.addEventListener('loadeddata', function(){ transReady = true; });
 if(trans.readyState >= 2) transReady = true;
