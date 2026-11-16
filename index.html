@@ -36,10 +36,12 @@ img,video{display:block;max-width:100%}
 /* ================= HERO STAGE ================= */
 .stage{position:fixed;inset:0;overflow:hidden;background:linear-gradient(180deg,#0c3523 0%,#14503a 45%,#9fd8bf 100%);z-index:1}
 .stage::before{content:"";position:absolute;inset:0;opacity:0;pointer-events:none;background:linear-gradient(180deg,#1b4a34 0%,#1b4a34 55%,#2f6a50 80%,#7fb79d 100%)}
-.frame{position:absolute;left:0;top:0;width:1440px;height:810px;transform-origin:0 0;--m0:0px;--mt:0px;--mb:0px;--ms:0px;transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1)}
-.frame.glide{transition:transform var(--glide) cubic-bezier(.65,0,.35,1),--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1)}
+.frame{position:absolute;left:0;top:0;width:1440px;height:810px;transform-origin:0 0;--m0:0px;--mt:0px;--mb:0px;--ms:0px}
+.frame.glide{transition:transform var(--glide) cubic-bezier(.65,0,.35,1)}
 .frame.d-fade.m-case{--mt:110px;--mb:60px;--ms:170px}
 .plate,.trans,.caseplate{-webkit-mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);mask-composite:intersect}
+.plate,.trans,.caseplate{transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1)}
+.trans,.caseplate{transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1),opacity .35s ease}
 .plate{position:absolute;left:0;top:0;width:1440px;height:810px;object-fit:cover;--o:0px;--ob:0px}
 .cut{position:absolute;left:0;top:0;width:1440px;height:810px;object-fit:cover;z-index:4}
 .wm{position:absolute;left:0;top:0;width:1440px;height:260px;overflow:visible;z-index:3}
@@ -54,7 +56,7 @@ img,video{display:block;max-width:100%}
 .screen .swhite .c{width:64px;height:3px;background:var(--accent);border-radius:2px;margin-top:6px}
 
 /* badge */
-.badge{position:absolute;left:986px;top:-165px;width:582px;height:1030px;z-index:5;pointer-events:none;transform-origin:288px 0}
+.badge{position:absolute;left:986px;top:-165px;width:582px;height:1030px;z-index:5;pointer-events:none;transform-origin:288px 0;animation:sway 3.4s ease-in-out infinite alternate}
 .badge .strap{position:absolute;top:0;width:24px;height:472px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,#141615,#2e3231 50%,#141615);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 6px 14px rgba(0,0,0,.18)}
 .badge .strap.l{left:253px;transform:rotate(4deg);transform-origin:50% 0}
 .badge .strap.r{left:305px;transform:rotate(-4deg);transform-origin:50% 0}
@@ -70,10 +72,11 @@ img,video{display:block;max-width:100%}
 .badge .card .row b{font-weight:600;text-align:right}
 .badge .card .row .em{font-size:8px;letter-spacing:-.2px}
 .badge .hit{position:absolute;left:160px;top:470px;width:262px;height:440px;pointer-events:auto;cursor:grab}
+@keyframes sway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
 
 /* fixed hero UI */
 .ui{position:fixed;inset:0;z-index:20;pointer-events:none}
-.ui .tag,.ui .sheet{pointer-events:auto}
+.ui .tag,.ui .sheet,.ui .hint,.ui .m-badge{pointer-events:auto}
 body.inside .ui{visibility:hidden}
 .tag{position:absolute;display:inline-flex;align-items:center;justify-content:center;height:calc(var(--n)*37);padding:0 calc(var(--n)*18);white-space:nowrap;background:#fff;color:var(--ink);font-size:calc(var(--n)*16.5);font-weight:650;letter-spacing:-.02em;box-shadow:0 calc(var(--n)*3) 0 rgba(0,0,0,.18),0 calc(var(--n)*6) calc(var(--n)*14) rgba(0,0,0,.18);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s cubic-bezier(.2,.8,.2,1)}
 .tag:hover{transform:translateY(calc(var(--n)*-2)) rotate(-1.5deg);box-shadow:0 calc(var(--n)*5) 0 rgba(0,0,0,.22),0 calc(var(--n)*10) calc(var(--n)*18) rgba(0,0,0,.2)}
@@ -82,7 +85,7 @@ body.inside .ui{visibility:hidden}
 .tag.t2{left:calc(var(--n)*233);top:calc(var(--n)*7)}
 .tag.t3{right:calc(var(--n)*244);top:calc(var(--n)*7);text-decoration:none}
 .tag.t4{right:calc(var(--n)*32);top:calc(var(--n)*7);text-decoration:none}
-.hint{position:absolute;left:50%;bottom:calc(var(--n)*22);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:calc(var(--n)*12);letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff;opacity:.85;white-space:nowrap}
+.hint{position:absolute;left:50%;bottom:calc(var(--n)*22);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;font-size:calc(var(--n)*12);letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff;opacity:.85;white-space:nowrap}
 .hint .wire{position:relative;width:calc(var(--n)*1.5);height:calc(var(--n)*22);background:rgba(255,255,255,.35);overflow:hidden}
 .hint .wire i{position:absolute;left:0;top:-40%;width:100%;height:40%;background:#fff;animation:drip 1.6s cubic-bezier(.6,0,.4,1) infinite}
 @keyframes drip{to{top:100%}}
@@ -146,7 +149,7 @@ body.busy .hint{visibility:hidden}
 .gal-head .tagline{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .gal-head h2{margin-top:6px}
 .gal-head .stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.gal-stage{position:relative;margin-top:22px;border-radius:20px;background:#0c120e;overflow:hidden;height:min(76vh,680px);box-shadow:0 24px 50px rgba(16,40,30,.18)}
+.gal-stage{position:relative;margin-top:22px;border-radius:20px;background:#0c120e;overflow:hidden;height:min(76vh,680px);height:min(76dvh,680px);box-shadow:0 24px 50px rgba(16,40,30,.18)}
 .gal-stage img,.gal-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .gal-stage video{cursor:pointer}
 .gal-stage .wm-tag{position:absolute;right:12px;bottom:12px;z-index:3;background:rgba(255,255,255,.78);backdrop-filter:blur(8px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:800;letter-spacing:.08em;color:#26332d;pointer-events:none}
@@ -197,8 +200,8 @@ body.busy .hint{visibility:hidden}
   .m-wm{position:absolute;left:3vw;width:94vw;top:calc(12px + var(--n)*96);overflow:visible}
   .m-wm text{font-family:'Inter Tight';font-weight:900;font-size:268px;letter-spacing:-6px}
   .m-script{position:absolute;right:6vw;top:calc(12px + var(--n)*96 + 14vw);font-family:'Caveat Brush',cursive;font-size:15vw;line-height:1;color:#fff;white-space:nowrap;transform:rotate(-7deg);text-shadow:0 2px 10px rgba(0,0,0,.2)}
-  .m-badge{position:absolute;right:2vw;top:calc(12px + var(--n)*96 + 9vw);width:27vw;height:47.78vw;z-index:5;transform-origin:50% 0}
-  .m-badge .badge{display:block;left:calc(13.5vw - 288px);top:0;transform:scale(var(--mbs));transform-origin:288px 0}
+  .m-badge{position:absolute;right:2vw;top:calc(12px + var(--n)*96 + 16.5vw + 12px);width:calc(582px*var(--mbs));height:calc(1030px*var(--mbs));z-index:5;transform-origin:50% 0;animation:sway 3.4s ease-in-out infinite alternate;touch-action:none;cursor:grab}
+  .m-badge .badge{display:block;left:calc(291px*var(--mbs) - 288px);top:0;transform:scale(var(--mbs));transform-origin:288px 0;animation:none}
   .m-badge .badge .hit{pointer-events:none}
   body.inside .m-wm,body.inside .m-script,body.inside .m-badge{visibility:hidden}
   .hint{bottom:18px;font-size:11px}
@@ -220,6 +223,30 @@ body.busy .hint{visibility:hidden}
   .gal-cap{font-size:14px}
   .t-row{grid-template-columns:1fr;gap:6px}
   .cta{padding:34px 20px}
+}
+@media (min-width:821px) and (max-width:1100px){
+  .tag{font-size:14px;height:34px;padding:0 14px}
+  .tag.t1{left:14px;top:12px}
+  .tag.t2{left:auto;right:14px;top:12px}
+  .tag.t3{right:auto;left:14px;top:56px}
+  .tag.t4{right:14px;top:56px}
+  .p-hero{grid-template-columns:1fr;padding-top:48px}
+  .p-photo{order:-1;min-height:320px}
+  .proof{grid-template-columns:1fr 1fr}
+  .doors{grid-template-columns:1fr 1fr}
+  .wins{grid-template-columns:1fr 1fr}
+  .gal-stage{height:min(70vh,600px);height:min(70dvh,600px)}
+}
+@media (max-width:480px){
+  .p-head .brand{font-size:16px}
+  .btn{padding:10px 16px;font-size:13.5px}
+  .gal-stage{height:60vh;height:60dvh;border-radius:14px}
+  .gal-arrow{width:44px;height:44px;font-size:24px}
+  .gal-play{width:66px;height:66px;font-size:25px}
+  .sheet{min-width:0;width:calc(100vw - 32px)}
+  .cta{padding:30px 16px}
+  .proof .cell{padding:16px 14px}
+  .door{min-height:150px;padding:28px 12px 18px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
@@ -256,7 +283,7 @@ body.busy .hint{visibility:hidden}
 <div class="ui">
   <svg class="m-only m-wm pre" id="mWm" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
     <defs><linearGradient id="wmg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="1"/><stop offset=".5" stop-color="#f1f5f3" stop-opacity=".9"/><stop offset="1" stop-color="#d7e6de" stop-opacity=".3"/></linearGradient></defs>
-    <text x="10" y="210" textLength="1420" lengthAdjust="spacingAndGlyphs" fill="url(#wmg2)">ANKIT NIGAM</text>
+    <text x="30" y="210" textLength="1360" lengthAdjust="spacingAndGlyphs" fill="url(#wmg2)">ANKIT NIGAM</text>
   </svg>
   <div class="m-only m-script pre" id="mScript">ai-creator</div>
   <div class="m-only m-badge" id="mBadge"></div>
@@ -264,7 +291,7 @@ body.busy .hint{visibility:hidden}
   <button class="tag t2 pre" id="btnPortfolio" type="button">portfolio</button>
   <a class="tag t3 pre" id="lnkContacts" href="#contacts">contacts</a>
   <a class="tag t4 pre" id="lnkDiscuss" href="#discuss">discuss a project</a>
-  <div class="hint pre" id="hint"><span class="wire"><i></i></span><span>scroll into the work</span></div>
+  <button class="hint pre" id="hint" type="button" aria-label="Scroll into the work"><span class="wire"><i></i></span><span>scroll into the work</span></button>
   <div class="sheet" id="sheet" role="dialog" aria-label="Contact Ankit Nigam">
     <button class="x" id="sheetX" type="button" aria-label="Close">×</button>
     <h3>Ankit Nigam</h3><div class="sub">SOCIAL MEDIA // AI CREATOR</div>
@@ -379,28 +406,24 @@ function isMobile(){ return W <= 820; }
 function setN(){ var n = isMobile() ? W/430 : Math.min(W/1440, H/900); root.style.setProperty('--n', n + 'px'); }
 
 function pose(m){
-  var cover = Math.max(W/1440, H/810), u = Math.min(W/1440, H/900), s, x, y;
+  var s, x, y;
   if(m === 'fill'){
+    /* the laptop screen rect (326,90 · 816x428) grows until it covers the whole viewport */
     s = Math.max(W/816, H/428) * 1.04;
-    x = W/2 - 734*s; y = H/2 - 304*s;
+    return {x:W/2 - 734*s, y:H/2 - 304*s, s:s};
+  }
+  if(m === 'case'){
+    /* fit the WHOLE laptop (frame rect x 250..1220, y 40..570) inside the viewport — same math on phone, tablet and PC */
+    s = Math.min(W/970, H/530) * 0.98;
+    return {x:W/2 - 735*s, y:H/2 - 305*s, s:s};
+  }
+  if(isMobile()){
+    s = Math.min(W/650, 0.62*H/810); x = W/2 - 805*s; y = H - 790*s;
     return {x:x, y:y, s:s};
   }
-  if(!isMobile()){
-    if(m === 'hero'){ s = cover; x = (W - 1440*s)/2; y = 0; }
-    else{
-      var top = 66*u, fit = (H - top - 28*u)/(762 - 79);
-      if(fit >= cover){ s = cover; y = Math.min(0, Math.max(H - 810*s, top - 79*s)); }
-      else{ s = fit; y = top - 79*fit; }
-      x = (W - 1440*s)/2;
-    }
-  }else{
-    if(m === 'hero'){ s = Math.min(W/650, 0.62*H/810); x = W/2 - 805*s; y = H - 790*s; }
-    else{
-      var navH = 0.022*H + 42 + 22;
-      s = Math.min((W - 28)/905, Math.max(0.2, (H - navH - 120)/(762 - 95)));
-      x = W/2 - 720*s; y = H - navH - 762*s;
-    }
-  }
+  s = Math.max(W/1440, H/810);
+  x = (W - 1440*s)/2;
+  y = Math.min(0, Math.max(H - 810*s, -150*s));
   return {x:x, y:y, s:s};
 }
 function fitHero(p){
@@ -412,12 +435,17 @@ function fitHero(p){
   badge.style.top = Math.min(-165, vb - 56/p.s - 935) + 'px';
   scriptEl.style.left = (vl + pad + 70) + 'px';
 }
+var curPose = 'hero';
 function place(m){
+  curPose = m;
   var p = pose(m);
   frame.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px) scale(' + p.s + ')';
   frame.classList.toggle('m-case', m === 'case');
   stage.classList.toggle('m-case', m === 'case');
-  if(isMobile()) root.style.setProperty('--mbs', (0.27*W/582));
+  if(isMobile()){
+    var bw = Math.max(118, Math.min(0.38*W, 205));
+    root.style.setProperty('--mbs', (bw/582).toFixed(4));
+  }
   if(m === 'hero' && !isMobile()) fitHero(p);
   return p;
 }
@@ -425,19 +453,16 @@ function setFadeClass(){ frame.classList.toggle('d-fade', !isMobile()); frame.cl
 function onResize(){
   W = window.innerWidth; H = window.innerHeight;
   setN(); setFadeClass();
-  if(mode === 'hero' && !busy){ frame.classList.remove('glide'); place('hero'); }
+  if(mode !== 'hero') return;
+  if(busy){ place(curPose); }
+  else{ frame.classList.remove('glide'); place('hero'); }
 }
 window.addEventListener('resize', onResize);
+window.addEventListener('orientationchange', function(){ setTimeout(onResize, 80); });
 
 /* entrance */
 var entered = false;
-function startSway(){
-  if(RM) return; stopSway();
-  animBadgeEls().forEach(function(b){
-    var a = b.animate([{transform:'rotate(-1.1deg)'},{transform:'rotate(1.1deg)'}],{duration:3200,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
-    swayAnims.push(a);
-  });
-}
+function startSway(){ /* the sway is a CSS animation on .badge / .m-badge — nothing to start */ }
 function stopSway(){ swayAnims.forEach(function(a){ try{ a.cancel(); }catch(e){} }); swayAnims = []; }
 function entrance(){
   if(entered) return; entered = true;
@@ -475,6 +500,33 @@ $('#badgeHit').addEventListener('pointerenter', function(){
   if(mode !== 'hero' || RM) return;
   badge.animate([{transform:'rotate(0deg)'},{transform:'rotate(-6deg)'},{transform:'rotate(4deg)'},{transform:'rotate(-2deg)'},{transform:'rotate(0deg)'}],{duration:1400,easing:'ease-out',composite:'add'});
 });
+$('#badgeHit').addEventListener('click', function(){ if(mode === 'hero') sheet.classList.toggle('open'); });
+/* mobile ID card: drag it sideways and it swings; tap it and the contacts open */
+(function(){
+  var drag = null;
+  mBadge.addEventListener('pointerdown', function(e){
+    if(mode !== 'hero') return;
+    drag = {x:e.clientX, moved:false};
+    mBadge.style.animation = 'none';
+    try{ mBadge.setPointerCapture(e.pointerId); }catch(err){}
+  });
+  mBadge.addEventListener('pointermove', function(e){
+    if(!drag) return;
+    var dx = e.clientX - drag.x;
+    if(Math.abs(dx) > 6) drag.moved = true;
+    mBadge.style.transform = 'rotate(' + Math.max(-16, Math.min(16, dx*0.16)).toFixed(1) + 'deg)';
+  });
+  function endDrag(){
+    if(!drag) return;
+    var tap = !drag.moved; drag = null;
+    mBadge.style.transition = 'transform .55s cubic-bezier(.2,.8,.2,1)';
+    mBadge.style.transform = '';
+    setTimeout(function(){ mBadge.style.transition = ''; mBadge.style.animation = ''; }, 580);
+    if(tap && mode === 'hero') sheet.classList.toggle('open');
+  }
+  mBadge.addEventListener('pointerup', endDrag);
+  mBadge.addEventListener('pointercancel', endDrag);
+})();
 
 function clearAnims(el){ el.getAnimations().forEach(function(a){ try{ a.cancel(); }catch(e){} }); }
 function heroOut(){
@@ -504,7 +556,7 @@ function playTrans(){
     }
     var pr = trans.play();
     if(pr && pr.then){ pr.then(function(){ requestAnimationFrame(tick); }).catch(finish); } else requestAnimationFrame(tick);
-    setTimeout(finish, 4500);
+    setTimeout(finish, 3200);
   });
 }
 function showPortfolio(){
@@ -533,10 +585,11 @@ function enterPortfolio(){
       plate.style.visibility = 'hidden';
       var ca = cut.animate([{opacity:1},{opacity:0}],{duration:D(260),fill:'both',easing:'ease-out'});
       ca.onfinish = function(){ cut.style.opacity = 0; try{ ca.cancel(); }catch(e){} };
-      root.style.setProperty('--glide', '1.6s');
+      root.style.setProperty('--glide', '1.5s');
       frame.classList.add('glide');
       place('case');
-      return playTrans();
+      /* the zoom runs on its own timeline — it never waits for the video to finish */
+      return Promise.race([playTrans(), wait(2300)]);
     })
     .then(function(){
       /* leg 2: keep zooming until the screen fills everything */
@@ -544,9 +597,9 @@ function enterPortfolio(){
       caseplate.style.opacity = 1;
       trans.style.opacity = 0;
       screenEl.style.opacity = 1;
-      root.style.setProperty('--glide', '1.35s');
+      root.style.setProperty('--glide', '1.25s');
       place('fill');
-      return wait(1400);
+      return wait(1300);
     })
     .then(function(){ showPortfolio(); });
   });
@@ -584,6 +637,16 @@ function exitPortfolio(){
 }
 
 /* inputs — only hijack scroll while on the hero */
+var transPrimed = false;
+function primeTrans(){
+  /* play+pause the dive video inside a real user gesture, so mobile browsers allow it to play later */
+  if(transPrimed || RM) return; transPrimed = true;
+  try{
+    var p = trans.play();
+    if(p && p.then) p.then(function(){ try{ trans.pause(); trans.currentTime = 0; }catch(e){} }).catch(function(){});
+  }catch(e){}
+}
+window.addEventListener('pointerdown', function(){ if(mode === 'hero') primeTrans(); }, {passive:true});
 var wheelLockUntil = 0;
 window.addEventListener('wheel', function(e){
   if(mode !== 'hero') return;
@@ -594,12 +657,12 @@ window.addEventListener('wheel', function(e){
   if(e.deltaY > 0) enterPortfolio();
 }, {passive:false});
 var tsX = 0, tsY = 0, touchOn = false;
-window.addEventListener('touchstart', function(e){ if(e.touches.length === 1){ tsX = e.touches[0].clientX; tsY = e.touches[0].clientY; touchOn = true; } }, {passive:true});
+window.addEventListener('touchstart', function(e){ if(mode === 'hero') primeTrans(); if(e.touches.length === 1){ tsX = e.touches[0].clientX; tsY = e.touches[0].clientY; touchOn = true; } }, {passive:true});
 window.addEventListener('touchmove', function(e){ if(mode === 'hero') e.preventDefault(); }, {passive:false});
 window.addEventListener('touchend', function(e){
   if(!touchOn || mode !== 'hero') return; touchOn = false;
   var t = e.changedTouches[0], dx = t.clientX - tsX, dy = t.clientY - tsY;
-  if(Math.max(Math.abs(dx), Math.abs(dy)) < 40) return;
+  if(Math.max(Math.abs(dx), Math.abs(dy)) < 30) return;
   if(dy < 0 && Math.abs(dy) >= Math.abs(dx)) enterPortfolio();
 }, {passive:true});
 window.addEventListener('keydown', function(e){
@@ -609,6 +672,7 @@ window.addEventListener('keydown', function(e){
   else if(mode === 'inside' && activeGal && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')){ e.preventDefault(); go(activeGal, e.key === 'ArrowRight' ? 1 : -1); }
 });
 $('#btnPortfolio').addEventListener('click', function(){ enterPortfolio(); });
+$('#hint').addEventListener('click', function(){ enterPortfolio(); });
 $('#btnStudio').addEventListener('click', function(){ if(mode === 'inside') exitPortfolio(); });
 $('#btnExit').addEventListener('click', function(){ exitPortfolio(); });
 function openSheet(e){ if(e) e.preventDefault(); if(mode === 'inside'){ scrollInside('#contact'); } else sheet.classList.toggle('open'); }
