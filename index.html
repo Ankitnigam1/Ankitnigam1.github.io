@@ -732,9 +732,11 @@ function pose(m){
     /* person torso bbox x 333..979, centre 656 — centre him, frame bottom sits at the viewport bottom.
        Framed at W/640 — a little bigger than the old W/706 so he reads clearly on a phone, while the
        visible window (640 frame px, x 336..976) still holds essentially the whole torso and the laptop.
-       Bottom-anchored at frame y 712, so the visible window always runs head (y~15) to waist (y~665),
-       the same head-to-waist framing as desktop. */
-    s = Math.min(W/640, 0.72*H/720); x = W/2 - 656*s; y = H - 712*s;
+       Bottom-anchored at the waist line, frame y 665 (uplifted from the old 712 anchor, which let the
+       screen cut him below the waist around the stomach and made him look sunk in the frame), so the
+       visible window always runs head (y~15) to waist (y~665) — a clean head-to-waist shot, the same
+       head-to-waist framing as desktop. Mobile only; the desktop pose below is untouched. */
+    s = Math.min(W/640, 0.72*H/720); x = W/2 - 656*s; y = H - 665*s;
     return {x:x, y:y, s:s};
   }
   /* HEAD-TO-WAIST framing: the scale is capped by H/700 and the frame is bottom-anchored at frame
