@@ -116,11 +116,11 @@ body.busy .hint{visibility:hidden}
 .m-only{display:none}
 
 /* ================= INSIDE: WHITE GLASS PORTFOLIO ================= */
-.portfolio{position:fixed;inset:0;z-index:30;background:#fff;color:var(--ink);font-family:'Archivo',system-ui,sans-serif;overflow-y:auto;overflow-x:hidden;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s;-webkit-overflow-scrolling:touch}
+.portfolio{position:fixed;inset:0;z-index:30;background:linear-gradient(180deg,#fcfcf9 0%,#f1f4f1 55%,#edf1ee 100%);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;overflow-y:auto;overflow-x:hidden;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s;-webkit-overflow-scrolling:touch}
 .portfolio.show{opacity:1;visibility:visible;transition:opacity .55s ease}
 .portfolio::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(700px 380px at 12% -40px,rgba(46,94,78,.10),transparent 65%),radial-gradient(700px 420px at 95% 18%,rgba(46,94,78,.08),transparent 65%)}
 .p-wrap{max-width:1120px;margin:0 auto;padding:0 22px 90px;position:relative}
-.glass{background:var(--glass);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid var(--glass-brd);box-shadow:0 14px 36px rgba(16,40,30,.08)}
+.glass{background:var(--glass);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);border:1px solid var(--glass-brd);box-shadow:0 14px 36px rgba(16,40,30,.08)}
 .p-head{position:sticky;top:14px;z-index:50;margin-top:14px;border-radius:16px;padding:10px 12px 10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .p-head .brand{font-family:'Fraunces',serif;font-weight:800;font-size:19px;letter-spacing:.04em;margin-right:auto}
 .p-head nav{display:flex;gap:4px;flex-wrap:wrap}
@@ -132,7 +132,7 @@ body.busy .hint{visibility:hidden}
 .btn-ghost{background:rgba(255,255,255,.7);border-color:var(--glass-brd);color:var(--ink)}
 .btn-exit{background:#101613;color:#fff}
 .p-hero{padding:64px 0 10px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
-.p-kicker{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.p-kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
 .p-hero h1{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(38px,5.6vw,64px);line-height:1.04;letter-spacing:-.01em;margin-top:14px}
 .role-card{display:inline-block;margin-top:18px;background:#fffdf4;border:1px solid rgba(16,22,19,.12);box-shadow:0 16px 30px rgba(16,40,30,.12);border-radius:8px;padding:14px 22px;transform:rotate(-2deg);font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--accent);min-width:min(420px,100%);text-align:center}
 .role-card span{display:block;transition:opacity .3s ease,transform .3s ease}
@@ -145,8 +145,9 @@ body.busy .hint{visibility:hidden}
 .proof .num{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--accent);line-height:1}
 .proof .lab{margin-top:8px;font-size:13px;line-height:1.45;color:#3c4741;font-weight:600}
 /* ================= SKILLS ================= */
-.skills-list{margin-top:30px;border-top:1px solid rgba(46,94,78,.18)}
-.skill-row{display:grid;grid-template-columns:52px 46px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.18);align-items:baseline}
+.skills-list{margin-top:30px;background:var(--glass);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);border:1px solid var(--glass-brd);border-radius:18px;box-shadow:0 14px 36px rgba(16,40,30,.08);padding:4px 22px}
+.skill-row{display:grid;grid-template-columns:52px 46px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.14);align-items:baseline}
+.skill-row:last-child{border-bottom:0}
 .skill-row .no{font-family:'Fraunces',serif;font-size:15px;font-weight:800;color:var(--accent);opacity:.65}
 .skill-row h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
 .skill-row p{grid-column:3;margin-top:5px;font-size:14.5px;line-height:1.6;color:#3c4741;max-width:64ch}
@@ -155,6 +156,7 @@ body.busy .hint{visibility:hidden}
 .tools-strip .tl{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#5a665f;margin-right:4px}
 .p-sec{margin-top:74px}
 .p-sec h2{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(30px,4.4vw,46px);line-height:1.08}
+.p-sec h2::after{content:"";display:block;width:58px;height:2px;border-radius:2px;background:var(--accent);opacity:.5;margin-top:15px}
 .p-sec .sub{margin-top:10px;color:#3c4741;font-size:15.5px;line-height:1.6;max-width:62ch}
 .doors{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
 .door{border-radius:120px 120px 18px 18px;padding:34px 16px 22px;text-align:center;cursor:pointer;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;transition:transform .25s ease,box-shadow .25s ease;font-family:inherit;color:var(--ink)}
@@ -168,12 +170,12 @@ body.busy .hint{visibility:hidden}
 .door-panel h3{font-family:'Fraunces',serif;font-size:24px}
 .door-panel p{margin-top:8px;line-height:1.65;color:#3c4741;font-size:15px;max-width:70ch}
 .door-panel .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.chip{border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;background:rgba(46,94,78,.08);border:1px solid var(--glass-brd)}
+.chip{border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
 /* ================= WORK GALLERIES (classic sliders) ================= */
-.gal-head .tagline{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.gal-head .tagline{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:6px 12px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
 .gal-head h2{margin-top:6px}
 .gal-head .stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.gal-stage{position:relative;margin-top:22px;border-radius:20px;background:#0c120e;overflow:hidden;height:min(76vh,680px);height:min(76dvh,680px);box-shadow:0 24px 50px rgba(16,40,30,.18)}
+.gal-stage{position:relative;margin-top:22px;border-radius:20px;background:#0c120e;overflow:hidden;height:min(76vh,680px);height:min(76dvh,680px);border:1px solid rgba(16,40,30,.3);box-shadow:0 24px 50px rgba(16,40,30,.18)}
 .gal-stage img,.gal-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .gal-stage video{cursor:pointer}
 .gal-stage .wm-tag{position:absolute;right:12px;bottom:12px;z-index:3;background:rgba(255,255,255,.78);backdrop-filter:blur(8px);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:800;letter-spacing:.08em;color:#26332d;pointer-events:none}
@@ -221,12 +223,12 @@ body.busy .hint{visibility:hidden}
 .j-card{border-radius:18px;padding:22px}
 .j-stop.flip .j-card{grid-column:3}
 .j-card .yr{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--accent);line-height:1}
-.j-card h3{font-size:18.5px;margin-top:7px;letter-spacing:-.01em}
+.j-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:650;margin-top:8px;letter-spacing:0;line-height:1.25}
 .j-card p{margin-top:7px;font-size:14.5px;line-height:1.65;color:#3c4741}
 .j-card ul{list-style:none;margin-top:12px;display:grid;gap:7px}
 .j-card li{position:relative;font-size:13.5px;line-height:1.5;color:#26332d;font-weight:600;padding-left:17px}
 .j-card li::before{content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.j-card .res{display:inline-block;margin-top:14px;font-family:'Fraunces',serif;font-weight:800;font-size:15.5px;color:var(--accent);background:rgba(46,94,78,.08);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px}
+.j-card .res{display:inline-block;margin-top:14px;font-family:'Fraunces',serif;font-weight:800;font-size:15.5px;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
 .j-node{grid-column:2;justify-self:center;position:relative;z-index:2;width:24px;height:24px;margin-top:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 0 0 6px rgba(46,94,78,.12),0 6px 14px rgba(16,40,30,.18)}
 .j-shot{grid-column:3;border-radius:14px;overflow:hidden;align-self:start;margin-top:2px}
 .j-stop.flip .j-shot{grid-column:1;grid-row:1}
@@ -251,7 +253,7 @@ body.busy .hint{visibility:hidden}
 /* skill + tool brand marks */
 .skill-ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--glass-brd);display:flex;align-items:center;justify-content:center;color:var(--accent);align-self:start}
 .skill-ic svg{width:23px;height:23px;display:block}
-.tool-chip{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:7px 15px 7px 8px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.72);border:1px solid var(--glass-brd);color:#26332d}
+.tool-chip{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:7px 15px 7px 8px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.72);border:1px solid var(--glass-brd);color:#26332d;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
 .tool-chip .lg{width:25px;height:25px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
 .tool-chip .lg svg{width:17px;height:17px;display:block}
 .btn .bic{display:inline-flex;align-items:center;justify-content:center;flex:none}
@@ -264,7 +266,7 @@ body.busy .hint{visibility:hidden}
 .win{border-radius:18px;padding:22px}
 .win h3{font-family:'Fraunces',serif;font-size:20px}
 .win p{margin-top:7px;font-size:14px;line-height:1.6;color:#3c4741}
-.cta{margin-top:80px;border-radius:24px;padding:42px 30px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(207,238,224,.55))}
+.cta{margin-top:80px;border-radius:24px;padding:42px 30px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(207,238,224,.55));border:1px solid var(--glass-brd);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35)}
 .cta h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,50px);font-weight:650}
 .cta p{margin:12px auto 0;color:#3c4741;font-size:15.5px;max-width:52ch;line-height:1.6}
 .cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
@@ -315,6 +317,7 @@ body.busy .hint{visibility:hidden}
   .j-stop.flip .j-card{grid-column:2}
   .j-shot,.j-stop.flip .j-shot{grid-column:2;grid-row:auto;margin-top:12px}
   .j-note{text-align:left;margin-left:48px}
+  .skills-list{padding:2px 14px}
   .skill-row{grid-template-columns:28px 38px 1fr;padding:18px 2px}
   .skill-ic{width:36px;height:36px;border-radius:10px}
   .skill-ic svg{width:20px;height:20px}
@@ -347,6 +350,21 @@ body.busy .hint{visibility:hidden}
   .door{min-height:150px;padding:28px 12px 18px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ================= JOURNEY — DESKTOP CLEAN GRID (≥821px only; the phone layout below 820px is untouched) =================
+   Every stop: story card and photo share one row height, every photo sits in the SAME 4:3 frame,
+   contained on a clean neutral mat — no cropping, no stretching, no ragged mixed heights. */
+@media (min-width:821px){
+  .journey{margin-top:46px}
+  .j-stop{align-items:stretch;margin-top:36px}
+  .j-card{display:flex;flex-direction:column;padding:26px 28px}
+  .j-card p,.j-card ul{margin-bottom:14px}
+  .j-card .res{margin-top:auto;align-self:flex-start}
+  .j-node{margin-top:37px}
+  .j-shot{display:flex;flex-direction:column;padding:12px;margin-top:0}
+  .j-shot img{flex:none;width:100%;aspect-ratio:4/3;object-fit:contain;background:#e9edea;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(16,22,19,.07)}
+  .j-shot figcaption{margin-top:auto;padding:13px 8px 3px;min-height:51px}
+}
 </style>
 </head>
 <body class="locked">
@@ -508,7 +526,7 @@ body.busy .hint{visibility:hidden}
       <h2>Let's go back in time.</h2>
       <p class="sub">Five years, one thread. Everything below happened in order — the small wins first, then the bigger ones. Follow the rope: nothing here was overnight.</p>
       <div class="journey">
-        <svg class="rope" viewBox="0 0 44 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M22,-10 C58,180 -14,330 22,500 C58,670 -14,830 22,1010" fill="none" stroke="#2e5e4e" stroke-width="5" stroke-linecap="round" opacity=".4"/><path d="M22,-10 C58,180 -14,330 22,500 C58,670 -14,830 22,1010" fill="none" stroke="#11402c" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 11" opacity=".45"/></svg>
+        <svg class="rope" viewBox="0 0 44 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M22,-10 L22,1010" fill="none" stroke="#2e5e4e" stroke-width="5" stroke-linecap="round" opacity=".4"/><path d="M22,-10 L22,1010" fill="none" stroke="#11402c" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 11" opacity=".45"/></svg>
 
         <div class="j-stop">
           <article class="j-card glass">
