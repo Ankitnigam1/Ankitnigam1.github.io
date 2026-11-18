@@ -47,6 +47,7 @@ img,video{display:block;max-width:100%}
 .stage.show-case .bd-plate{opacity:0}
 .frame{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;z-index:1;--m0:0px;--mt:0px;--mb:0px;--ms:0px}
 .frame.glide{transition:transform var(--glide) cubic-bezier(.65,0,.35,1)}
+.frame.d-fade{--mt:46px;--mb:36px;--ms:60px}
 .frame.d-fade.m-case{--mt:44px;--mb:34px;--ms:64px}
 .plate,.trans,.caseplate{-webkit-mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);mask-composite:intersect}
 .plate,.trans,.caseplate{transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1)}
@@ -80,7 +81,7 @@ img,video{display:block;max-width:100%}
 .badge .card .row{display:flex;justify-content:space-between;align-items:flex-end;font-size:9px;font-weight:700;padding:6px 0 3px;border-bottom:1.5px dotted #333}
 .badge .card .row b{font-weight:600;text-align:right}
 .badge .card .row .em{font-size:8px;letter-spacing:-.2px}
-.badge .hit{position:absolute;left:160px;top:470px;width:262px;height:440px;pointer-events:auto;cursor:grab}
+.badge .hit{position:absolute;left:160px;top:436px;width:262px;height:474px;pointer-events:auto;cursor:grab}
 @keyframes sway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
 
 /* fixed hero UI */
@@ -140,10 +141,10 @@ body.busy .hint{visibility:hidden}
 .proof .lab{margin-top:8px;font-size:13px;line-height:1.45;color:#3c4741;font-weight:600}
 /* ================= SKILLS ================= */
 .skills-list{margin-top:30px;border-top:1px solid rgba(46,94,78,.18)}
-.skill-row{display:grid;grid-template-columns:52px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.18);align-items:baseline}
+.skill-row{display:grid;grid-template-columns:52px 46px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.18);align-items:baseline}
 .skill-row .no{font-family:'Fraunces',serif;font-size:15px;font-weight:800;color:var(--accent);opacity:.65}
 .skill-row h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
-.skill-row p{grid-column:2;margin-top:5px;font-size:14.5px;line-height:1.6;color:#3c4741;max-width:64ch}
+.skill-row p{grid-column:3;margin-top:5px;font-size:14.5px;line-height:1.6;color:#3c4741;max-width:64ch}
 .skill-row .lvl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(46,94,78,.35);border-radius:999px;padding:6px 12px;white-space:nowrap}
 .tools-strip{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .tools-strip .tl{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#5a665f;margin-right:4px}
@@ -185,13 +186,49 @@ body.busy .hint{visibility:hidden}
 .gal-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;padding:0 4px}
 .gal-cap{font-size:15px;font-weight:600;color:#26332d}
 .gal-count{font-family:'Fraunces',serif;font-size:17px;font-weight:800;color:var(--accent);white-space:nowrap}
+.gal-feature{margin-top:18px;border-radius:20px;padding:26px;display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center}
+.gal-feature .shot{border-radius:16px;overflow:hidden;background:#0b0e11;border:1px solid rgba(16,22,19,.16);box-shadow:0 18px 38px rgba(16,40,30,.22)}
+.gal-feature .shot img{width:100%;height:auto}
+.gal-feature .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.gal-feature .big{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,60px);font-weight:800;color:var(--accent);line-height:1;margin-top:8px}
+.gal-feature h3{font-family:'Fraunces',serif;font-size:clamp(21px,2.6vw,27px);font-weight:650;margin-top:6px}
+.gal-feature p{margin-top:9px;font-size:14.5px;line-height:1.65;color:#3c4741;max-width:52ch}
+.gal-feature .mini{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+@media (max-width:820px){.gal-feature{grid-template-columns:1fr;padding:20px;gap:20px}.gal-feature .shot{max-width:340px;width:100%;margin:0 auto}}
 .gal.flash .gal-stage{animation:galFlash 1.2s ease}
 @keyframes galFlash{0%{box-shadow:0 0 0 3px var(--accent),0 24px 50px rgba(16,40,30,.18)}100%{box-shadow:0 0 0 0 transparent,0 24px 50px rgba(16,40,30,.18)}}
-.timeline{margin-top:28px;display:grid;gap:14px}
-.t-row{display:grid;grid-template-columns:110px 1fr;gap:18px;border-radius:18px;padding:22px;align-items:start}
-.t-row .yr{font-family:'Fraunces',serif;font-size:30px;font-weight:800;color:var(--accent)}
-.t-row h3{font-size:17px}
-.t-row p{margin-top:5px;font-size:14.5px;line-height:1.6;color:#3c4741}
+/* ================= JOURNEY — one rope, year by year ================= */
+.journey{position:relative;margin-top:38px}
+.journey .rope{position:absolute;top:4px;left:50%;width:44px;height:calc(100% - 8px);transform:translateX(-50%);z-index:0;pointer-events:none}
+.j-stop{position:relative;z-index:1;display:grid;grid-template-columns:1fr 92px 1fr;align-items:start;margin-top:26px}
+.j-stop:first-of-type{margin-top:0}
+.j-card{border-radius:18px;padding:22px}
+.j-stop.flip .j-card{grid-column:3}
+.j-card .yr{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--accent);line-height:1}
+.j-card h3{font-size:18.5px;margin-top:7px;letter-spacing:-.01em}
+.j-card p{margin-top:7px;font-size:14.5px;line-height:1.65;color:#3c4741}
+.j-card ul{list-style:none;margin-top:12px;display:grid;gap:7px}
+.j-card li{position:relative;font-size:13.5px;line-height:1.5;color:#26332d;font-weight:600;padding-left:17px}
+.j-card li::before{content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.j-card .res{display:inline-block;margin-top:14px;font-family:'Fraunces',serif;font-weight:800;font-size:15.5px;color:var(--accent);background:rgba(46,94,78,.08);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px}
+.j-node{grid-column:2;justify-self:center;position:relative;z-index:2;width:24px;height:24px;margin-top:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 0 0 6px rgba(46,94,78,.12),0 6px 14px rgba(16,40,30,.18)}
+.j-shot{grid-column:3;border-radius:14px;overflow:hidden;align-self:start;margin-top:2px}
+.j-stop.flip .j-shot{grid-column:1;grid-row:1}
+.j-shot img{width:100%;height:auto}
+.j-shot figcaption{padding:9px 13px;font-size:12px;font-weight:700;letter-spacing:.03em;color:#3c4741;line-height:1.45}
+.j-note{max-width:640px;margin:28px auto 0;text-align:center;font-size:14px;line-height:1.65;color:#3c4741}
+/* skill + tool brand marks */
+.skill-ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--glass-brd);display:flex;align-items:center;justify-content:center;color:var(--accent);align-self:start}
+.skill-ic svg{width:23px;height:23px;display:block}
+.tool-chip{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:7px 15px 7px 8px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.72);border:1px solid var(--glass-brd);color:#26332d}
+.tool-chip .lg{width:25px;height:25px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
+.tool-chip .lg svg{width:17px;height:17px;display:block}
+.btn .bic{display:inline-flex;align-items:center;justify-content:center;flex:none}
+.btn-wa{background:#25d366;color:#07381c}
+.btn-wa:hover{background:#1fbc59}
+.btn-wa .bic{width:25px;height:25px;border-radius:50%;background:#0b6e36}
+.btn-wa .bic svg{width:15px;height:15px;fill:#fff;display:block}
+.btn-li .bic svg{width:21px;height:21px;display:block}
 .wins{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
 .win{border-radius:18px;padding:22px}
 .win h3{font-family:'Fraunces',serif;font-size:20px}
@@ -239,10 +276,19 @@ body.busy .hint{visibility:hidden}
   .gal-arrow.prev{left:8px}.gal-arrow.next{right:8px}
   .gal-play{width:74px;height:74px;font-size:28px}
   .gal-cap{font-size:14px}
-  .t-row{grid-template-columns:1fr;gap:6px}
-  .skill-row{grid-template-columns:30px 1fr;padding:18px 2px}
-  .skill-row .lvl{grid-column:2;justify-self:start;margin-top:8px}
-  .skill-row p{grid-column:2}
+  .journey .rope{display:none}
+  .journey::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:5px;border-radius:3px;z-index:0;background:repeating-linear-gradient(180deg,rgba(46,94,78,.6) 0 8px,rgba(17,64,44,.6) 8px 11px,rgba(46,94,78,.6) 11px 19px,transparent 19px 23px)}
+  .j-stop{grid-template-columns:34px 1fr;gap:0 14px;margin-top:22px}
+  .j-node{grid-column:1;width:20px;height:20px;margin-top:24px}
+  .j-card{grid-column:2;padding:19px}
+  .j-stop.flip .j-card{grid-column:2}
+  .j-shot,.j-stop.flip .j-shot{grid-column:2;grid-row:auto;margin-top:12px}
+  .j-note{text-align:left;margin-left:48px}
+  .skill-row{grid-template-columns:28px 38px 1fr;padding:18px 2px}
+  .skill-ic{width:36px;height:36px;border-radius:10px}
+  .skill-ic svg{width:20px;height:20px}
+  .skill-row .lvl{grid-column:3;justify-self:start;margin-top:8px}
+  .skill-row p{grid-column:3}
   .cta{padding:34px 20px}
 }
 @media (min-width:821px) and (max-width:1100px){
@@ -317,7 +363,7 @@ body.busy .hint{visibility:hidden}
   <div class="sheet" id="sheet" role="dialog" aria-label="Contact Ankit Nigam">
     <button class="x" id="sheetX" type="button" aria-label="Close">×</button>
     <h3>Ankit Nigam</h3><div class="sub">SOCIAL MEDIA // AI CREATOR</div>
-    <a href="tel:+917838753780"><span>PHONE</span><b>+91 7838753780</b></a>
+    <a href="https://wa.me/917838753780" target="_blank" rel="noopener"><span>WHATSAPP ONLY</span><b>+91 7838753780</b></a>
     <a href="mailto:ankitnigam636@gmail.com"><span>EMAIL</span><b>ANKITNIGAM636@GMAIL.COM</b></a>
   </div>
 </div>
@@ -364,16 +410,25 @@ body.busy .hint{visibility:hidden}
       <h2>What I do</h2>
       <p class="sub">Everything a page or brand needs to grow — created, edited and managed by one person, end to end.</p>
       <div class="skills-list">
-        <div class="skill-row"><span class="no">01</span><h3>AI Content Creation</h3><span class="lvl">Expert</span><p>Hyper-realistic AI video and photo generation, and AI influencers built end to end — face, wardrobe, locations, captions, posting rhythm. Proof: Caroline Langford, 75.7K followers in her first month.</p></div>
-        <div class="skill-row"><span class="no">02</span><h3>Video Editing</h3><span class="lvl">Expert</span><p>Reels, promos and ads cut for retention — hooks, kinetic typography and pacing — in CapCut and AI tools, for clients in India, the US and Germany.</p></div>
-        <div class="skill-row"><span class="no">03</span><h3>Social Media Management</h3><span class="lvl">Expert</span><p>Strategy, growth and scheduling for pages and brands. Proof: Patiala Touch — 400 → 10K followers in one month, powered by a reel seen 32.4 million times.</p></div>
-        <div class="skill-row"><span class="no">04</span><h3>Graphic Design</h3><span class="lvl">Advanced</span><p>Posters, e-book covers and brand creatives in Canva and AI — including the full 13-book Grandparent's Ultimate Bundle collection.</p></div>
-        <div class="skill-row"><span class="no">05</span><h3>Prompt Engineering</h3><span class="lvl">Strong</span><p>Image and video prompts that hold a face, an outfit and a whole world consistent across an entire campaign — not just one lucky frame.</p></div>
-        <div class="skill-row"><span class="no">06</span><h3>Content Writing</h3><span class="lvl">Strong</span><p>Scripts, hooks, captions and ad copy written to make people stop scrolling — and stay.</p></div>
-        <div class="skill-row"><span class="no">07</span><h3>AI Tools &amp; Workflow</h3><span class="lvl">Advanced</span><p>A daily AI stack for generation, editing and design — with ComfyUI at working-knowledge level for custom workflows.</p></div>
-        <div class="skill-row"><span class="no">08</span><h3>Client Dealing</h3><span class="lvl">Strong</span><p>Briefs, delivery and communication handled personally — the same person who makes the work answers your messages.</p></div>
+        <div class="skill-row"><span class="no">01</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.5 12.6 9l4.5 1.6-4.5 1.6L11 16.7l-1.6-4.5L4.9 10.6 9.4 9Z"/><path d="M18.6 15.2l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9Z"/><path d="M18.8 3.6l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5Z"/></svg></span><h3>AI Content Creation</h3><span class="lvl">Expert</span><p>Hyper-realistic AI video and photo generation, and AI influencers built end to end — face, wardrobe, locations, captions, posting rhythm. Proof: Caroline Langford, 75.7K followers in her first month.</p></div>
+        <div class="skill-row"><span class="no">02</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="9.5" rx="2"/><path d="M3.6 10 5 4.9a1.5 1.5 0 0 1 1.8-1.1l12.3 2.5A1.5 1.5 0 0 1 20.4 8L20 10"/><path d="M8.4 5.5l1.3 3.4M13.2 6.5l1.3 3.4M18 7.4l1.1 2.9"/></svg></span><h3>Video Editing</h3><span class="lvl">Expert</span><p>Reels, promos and ads cut for retention — hooks, kinetic typography and pacing — in CapCut and AI tools, for clients in India, the US and Germany.</p></div>
+        <div class="skill-row"><span class="no">03</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v15.5h16"/><path d="M7.5 14.8 11 10.6l2.8 2.4 4.4-5.2"/><path d="M14.9 7.6h3.4v3.4"/></svg></span><h3>Social Media Management</h3><span class="lvl">Expert</span><p>Strategy, growth and scheduling for pages and brands. Proof: Patiala Touch — 400 → 10K followers in one month, powered by a reel seen 32.4 million times.</p></div>
+        <div class="skill-row"><span class="no">04</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 17.5 13 12 20.5 6.5 13Z"/><circle cx="12" cy="12.2" r="1.7"/><path d="M12 13.9v6.6M6.5 13h11"/></svg></span><h3>Graphic Design</h3><span class="lvl">Advanced</span><p>Posters, e-book covers and brand creatives in Canva and AI — including the full 13-book Grandparent's Ultimate Bundle collection.</p></div>
+        <div class="skill-row"><span class="no">05</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M7 9.3 10.2 12 7 14.7M12.8 15.2H17"/></svg></span><h3>Prompt Engineering</h3><span class="lvl">Strong</span><p>Image and video prompts that hold a face, an outfit and a whole world consistent across an entire campaign — not just one lucky frame.</p></div>
+        <div class="skill-row"><span class="no">06</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5 5.6 15 16.9 3.7a2.05 2.05 0 0 1 2.9 0l.5.5a2.05 2.05 0 0 1 0 2.9L9 18.4Z"/><path d="M14.8 5.8l3.4 3.4M3.5 21.5h17"/></svg></span><h3>Content Writing</h3><span class="lvl">Strong</span><p>Scripts, hooks, captions and ad copy written to make people stop scrolling — and stay.</p></div>
+        <div class="skill-row"><span class="no">07</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1"/><path d="M9.5 6.5v-3M14.5 6.5v-3M9.5 20.5v-3M14.5 20.5v-3M6.5 9.5h-3M6.5 14.5h-3M20.5 9.5h-3M20.5 14.5h-3"/></svg></span><h3>AI Tools &amp; Workflow</h3><span class="lvl">Advanced</span><p>A daily AI stack for generation, editing and design — with ComfyUI at working-knowledge level for custom workflows.</p></div>
+        <div class="skill-row"><span class="no">08</span><span class="skill-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.3" r="3.3"/><path d="M3.4 19.8c.7-3.4 2.9-5.2 5.6-5.2s4.9 1.8 5.6 5.2"/><path d="M15.3 5.4a3.3 3.3 0 0 1 0 5.8M17.6 14.9c1.6.8 2.6 2.4 3 4.9"/></svg></span><h3>Client Dealing</h3><span class="lvl">Strong</span><p>Briefs, delivery and communication handled personally — the same person who makes the work answers your messages.</p></div>
       </div>
-      <div class="tools-strip"><span class="tl">Tools I use</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">Google Flow / Veo 3</span><span class="chip">Seedance</span><span class="chip">CapCut</span><span class="chip">Canva</span><span class="chip">ComfyUI</span></div>
+      <div class="tools-strip"><span class="tl">Tools I use</span>
+        <span class="tool-chip"><span class="lg" style="background:#111418"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" aria-hidden="true"><ellipse cx="12" cy="8.8" rx="3" ry="5.2"/><ellipse cx="12" cy="8.8" rx="3" ry="5.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="8.8" rx="3" ry="5.2" transform="rotate(120 12 12)"/></svg></span>ChatGPT</span>
+        <span class="tool-chip"><span class="lg" style="background:#d97757"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><path d="M12 4.6v14.8M4.6 12h14.8M6.8 6.8l10.4 10.4M17.2 6.8 6.8 17.2"/></svg></span>Claude</span>
+        <span class="tool-chip"><span class="lg" style="background:linear-gradient(135deg,#4285f4,#9b72cb)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c.6 4.7 2.5 6.6 7.2 7.2-4.7.6-6.6 2.5-7.2 7.2-.6-4.7-2.5-6.6-7.2-7.2C9.5 9.4 11.4 7.5 12 2.8Z" fill="#fff"/></svg></span>Gemini</span>
+        <span class="tool-chip"><span class="lg" style="background:linear-gradient(135deg,#4285f4,#34a853)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.9v10.2c0 .8.9 1.3 1.6.9l8-5.1c.6-.4.6-1.3 0-1.7l-8-5.2c-.7-.4-1.6.1-1.6.9Z" fill="#fff"/></svg></span>Google Flow · Veo 3</span>
+        <span class="tool-chip"><span class="lg" style="background:#0ea47a"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M12 20.5v-7"/><path d="M12 13.5C12 9.7 9.6 7.3 5.8 7.3c0 3.8 2.4 6.2 6.2 6.2Z" fill="#fff" stroke="none"/><path d="M12 11c0-3.3 2.1-5.4 5.4-5.4 0 3.3-2.1 5.4-5.4 5.4Z" fill="#fff" stroke="none" opacity=".78"/></svg></span>Seedance</span>
+        <span class="tool-chip"><span class="lg" style="background:#000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.8h14L12 11Z" fill="#fff"/><path d="M5 19.2h14L12 13Z" fill="#fff"/></svg></span>CapCut</span>
+        <span class="tool-chip"><span class="lg" style="background:linear-gradient(135deg,#00c4cc,#7d2ae8)"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="17.5" text-anchor="middle" font-family="'Caveat Brush',cursive" font-size="15" fill="#fff">C</text></svg></span>Canva</span>
+        <span class="tool-chip"><span class="lg" style="background:#2b3245"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" aria-hidden="true"><path d="M7.2 7.2 10.5 10M16.8 7.2 13.5 10M12 13.6v3.2"/><circle cx="6" cy="6" r="2.3" fill="#fff" stroke="none"/><circle cx="18" cy="6" r="2.3" fill="#fff" stroke="none"/><circle cx="12" cy="11.8" r="2.3" fill="#fff" stroke="none"/><circle cx="12" cy="18.6" r="2.3" fill="#fff" stroke="none"/></svg></span>ComfyUI</span>
+      </div>
     </section>
 
     <section class="p-sec" id="services">
@@ -390,12 +445,122 @@ body.busy .hint{visibility:hidden}
     <div id="galleries"></div>
 
 <section class="p-sec" id="story">
+      <div class="p-kicker">The Journey</div>
       <h2>Let's go back in time.</h2>
-      <div class="timeline">
-        <div class="t-row glass"><div class="yr">2021</div><div><h3>The first website</h3><p>Built my first website, got it earning with AdSense — and sold it for ₹2 lakh. That sale is what turned “trying things online” into a career.</p></div></div>
-        <div class="t-row glass"><div class="yr">2024</div><div><h3>Pages, clients &amp; a year at Maoyosoft</h3><p>Ran Hollywood-niche pages past 60K followers, and spent a year at Maoyosoft doing graphic design and video editing professionally.</p></div></div>
-        <div class="t-row glass"><div class="yr">2026</div><div><h3>The AI chapter</h3><p>Caroline Langford to 75.7K in a month, AI models for brands, and an AI film — The Last Ember — built shot by shot.</p></div></div>
+      <p class="sub">Five years, one thread. Everything below happened in order — the small wins first, then the bigger ones. Follow the rope: nothing here was overnight.</p>
+      <div class="journey">
+        <svg class="rope" viewBox="0 0 44 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M22,-10 C58,180 -14,330 22,500 C58,670 -14,830 22,1010" fill="none" stroke="#2e5e4e" stroke-width="5" stroke-linecap="round" opacity=".4"/><path d="M22,-10 C58,180 -14,330 22,500 C58,670 -14,830 22,1010" fill="none" stroke="#11402c" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 11" opacity=".45"/></svg>
+
+        <div class="j-stop">
+          <article class="j-card glass">
+            <div class="yr">2021 – 22</div>
+            <h3>Where it started — the first websites</h3>
+            <p>It began with one question: can the internet actually pay? I built my first website from scratch, learned how content ranks and how AdSense works, and got it earning. Then I sold it — for ₹2 lakh. That first sale changed everything: this stopped being “trying things online” and became the plan.</p>
+            <ul>
+              <li>Built my first website and got it approved &amp; earning on AdSense</li>
+              <li>Sold that website for ₹2 lakh — my first big online earning</li>
+              <li>Built a second website that went on to earn ₹40–70K a month at its run — proof the first one wasn't luck</li>
+            </ul>
+            <span class="res">Result: ₹2 lakh website sale</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+        </div>
+
+        <div class="j-stop flip">
+          <article class="j-card glass">
+            <div class="yr">2022 – 23</div>
+            <h3>Learning the craft — design, editing &amp; pages</h3>
+            <p>The website money bought me time to learn the skills properly. I went deep into graphic design and video editing, took a 2-month internship to learn how real client work, deadlines and feedback actually run — and started growing pages of my own on the side.</p>
+            <ul>
+              <li>2-month internship in graphic design + video editing</li>
+              <li>Grew Hollywood-niche pages past 60K followers</li>
+              <li>Started taking freelance design and editing work alongside</li>
+              <li>Designed the full 13-book Grandparent's Ultimate Bundle collection</li>
+            </ul>
+            <span class="res">Result: pages past 60K followers</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+          <figure class="j-shot glass">
+            <img src="assets/asset-007.jpg" alt="The Grandparent's Ultimate Bundle — all 13 e-book covers designed by Ankit" loading="lazy" />
+            <figcaption>The 13-book Grandparent's Ultimate Bundle — covers designed by me (full set in the Design gallery above)</figcaption>
+          </figure>
+        </div>
+
+        <div class="j-stop">
+          <article class="j-card glass">
+            <div class="yr">2023 – 24</div>
+            <h3>Going professional — a year at Maoyosoft</h3>
+            <p>Freelancing turned into a full professional year: I joined Maoyosoft and spent a year doing graphic design and video editing as a job — briefs, revisions, deadlines, delivery. In the same stretch, client page work produced the biggest single result of my career so far.</p>
+            <ul>
+              <li>One full year at Maoyosoft — graphic design + video editing, professionally</li>
+              <li>Patiala Touch, a men's wear page: 400 → 10K followers in one month</li>
+              <li>One reel for that page crossed 32.4 million views</li>
+              <li>Kept freelancing for clients in India, the US and Germany</li>
+            </ul>
+            <span class="res">Result: a 32.4M-view reel · 400 → 10K in a month</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+          <figure class="j-shot glass">
+            <img src="assets/asset-008.jpg" alt="Patiala Touch reel insights — the reel that reached 32.4 million views" loading="lazy" />
+            <figcaption>Patiala Touch — the breakout reel's insights: 32.4M views (more in its gallery above)</figcaption>
+          </figure>
+        </div>
+
+        <div class="j-stop flip">
+          <article class="j-card glass">
+            <div class="yr">2024 – 25</div>
+            <h3>Full-time pages — running content like a system</h3>
+            <p>After Maoyosoft, the work became running pages end to end: planning, producing, editing and posting every single day. The family-niche Facebook pages I work on reached US audiences at real scale — and my own profile crossed 30K followers along the way.</p>
+            <ul>
+              <li>Family-niche Facebook pages for a US audience — 573K views in 30 days on one page</li>
+              <li>A single reel crossed 1.4 million views</li>
+              <li>Personal profile grown to 30K followers</li>
+              <li>Daily reels, edited and posted on a fixed rhythm — no missed days</li>
+            </ul>
+            <span class="res">Result: 573K views in 30 days</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+          <figure class="j-shot glass">
+            <img src="assets/asset-009.jpg" alt="The Family with Baby Facebook page dashboard — 573K views in 30 days" loading="lazy" />
+            <figcaption>The Family with Baby — page dashboard, 573K views in 30 days</figcaption>
+          </figure>
+        </div>
+
+        <div class="j-stop">
+          <article class="j-card glass">
+            <div class="yr">2025 – 26</div>
+            <h3>The AI chapter — models, brands &amp; a film</h3>
+            <p>Everything learned so far — pages, editing, design, growth — came together when AI content arrived. I built Caroline Langford, a hyper-realistic AI influencer, and ran her end to end: she crossed 75.7K followers in her first month. Then came more AI models for brand work, and an AI film built shot by shot.</p>
+            <ul>
+              <li>Caroline Langford — 75.7K followers in her first month, millions of views</li>
+              <li>More AI models built for brands — Vaani Garg, Genie and Shrishti</li>
+              <li>The Last Ember — an AI film: characters, world and shots built one by one</li>
+              <li>This portfolio itself — designed and built as one of my projects</li>
+            </ul>
+            <span class="res">Result: 75.7K followers in one month</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+          <figure class="j-shot glass">
+            <img src="assets/asset-010.jpg" alt="Caroline Langford's Instagram profile — @shycarolinehere with 75.7K followers" loading="lazy" />
+            <figcaption>@shycarolinehere — 75.7K followers in the first month</figcaption>
+          </figure>
+        </div>
+
+        <div class="j-stop flip">
+          <article class="j-card glass">
+            <div class="yr">2026 →</div>
+            <h3>Now — and what's next</h3>
+            <p>Today I do all of it as one person: AI content creation, video editing, design and page management for brands and clients. The rope doesn't end here — the next stop is a full-time role where this whole journey points in one direction.</p>
+            <span class="res">Open to: Social Media · AI Content · Video Editing roles</span>
+          </article>
+          <div class="j-node" aria-hidden="true"></div>
+          <figure class="j-shot glass">
+            <img src="assets/asset-011.jpg" alt="The Last Ember — world and location design sheets from the AI film" loading="lazy" />
+            <figcaption>The Last Ember — the AI film's world, designed shot by shot</figcaption>
+          </figure>
+        </div>
       </div>
+      <p class="j-note">Every number on this page is from the work itself — the screenshots above are the same results you'll find in the galleries above.</p>
       <div class="wins">
         <div class="win glass"><h3>The second website</h3><p>A second site that earned ₹40–70K a month at its run — proof the first one wasn't luck.</p></div>
         <div class="win glass"><h3>2-month internship</h3><p>Graphic design + video editing internship — where client work, deadlines and feedback became routine.</p></div>
@@ -407,10 +572,11 @@ body.busy .hint{visibility:hidden}
       <h2>Got a role? Let's talk.</h2>
       <p>Social media, AI content or video editing — one message is enough to start. I reply personally.</p>
       <div class="row">
-        <a class="btn btn-solid" href="tel:+917838753780">Call +91 78387 53780</a>
+        <a class="btn btn-wa" href="https://wa.me/917838753780" target="_blank" rel="noopener"><span class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>+91 78387 53780 · WhatsApp only</a>
         <a class="btn btn-ghost" href="mailto:ankitnigam636@gmail.com">ankitnigam636@gmail.com</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ankit-nigam-a5b3711b8" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost btn-li" href="https://www.linkedin.com/in/ankit-nigam-a5b3711b8" target="_blank" rel="noopener"><span class="bic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></span>LinkedIn</a>
       </div>
+      <p style="margin-top:16px;font-size:13px;font-weight:600;color:#5a665f">I don't take calls — please message me on WhatsApp.</p>
     </section>
     <div class="p-foot">ANKIT NIGAM · SOCIAL MEDIA // AI CREATOR · DELHI</div>
   </div>
@@ -458,14 +624,19 @@ function pose(m){
   }
   if(isMobile()){
     /* person torso bbox x 333..979, centre 656 — centre him, frame bottom sits at the viewport bottom.
-       Framed wide enough (W/720) that his face reads big and clear and the laptop he holds stays mostly in frame. */
-    s = Math.min(W/720, 0.66*H/720); x = W/2 - 656*s; y = H - 715*s;
+       Framed wide enough (W/706) that his face reads big and clear and the laptop he holds stays mostly in frame.
+       Bottom-anchored at frame y 712, so the visible window always runs head (y~15) to waist (y~665). */
+    s = Math.min(W/706, 0.66*H/720); x = W/2 - 656*s; y = H - 712*s;
     return {x:x, y:y, s:s};
   }
-  s = Math.max(W/1280, H/720);
+  /* HEAD-TO-WAIST framing: the scale is capped by H/700 and the frame is bottom-anchored at frame
+     y 712, so the visible window always spans ~700 frame px — head (y~15) through waist (y~665) —
+     on every desktop aspect. (Cover-fit cropped the waist away on wide screens: head-to-chest.)
+     On aspects wider than ~1.83 the frame no longer covers the full width; the wall backdrop and
+     the plate's feathered side fade (--ms) melt the edges into the stage. */
+  s = Math.min(W/1280, H/700);
   x = (W - 1280*s)/2;
-  /* cap the top crop at 10 frame px so the wordmark tops and his head (top at y 72) are never cropped */
-  y = Math.min(0, Math.max(H - 720*s, -10*s));
+  y = H - 712*s;
   return {x:x, y:y, s:s};
 }
 function fitHero(p){
@@ -541,10 +712,35 @@ function entrance(){
 var plateReady = new Promise(function(res){ if(plate.complete) res(); else{ plate.addEventListener('load', res); plate.addEventListener('error', res); } });
 Promise.race([Promise.all([document.fonts.ready, plateReady]), wait(2500)]).then(function(){ requestAnimationFrame(entrance); });
 setTimeout(entrance, 4000);
-$('#badgeHit').addEventListener('pointerenter', function(){
+/* desktop: hovering the ID card sets it swinging like a badge on a lanyard — a decaying
+   pendulum on top of the gentle idle sway. Moving the cursor across the card pumps the
+   swing; when the cursor leaves, the swing dies down and the card settles back to its sway. */
+var hoverSwing = null, lastHX = null, lastHT = 0;
+var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+function swingBadge(amp){
   if(mode !== 'hero' || RM) return;
-  badge.animate([{transform:'rotate(0deg)'},{transform:'rotate(-6deg)'},{transform:'rotate(4deg)'},{transform:'rotate(-2deg)'},{transform:'rotate(0deg)'}],{duration:1400,easing:'ease-out',composite:'add'});
+  if(hoverSwing){ try{ hoverSwing.cancel(); }catch(e){} hoverSwing = null; }
+  var a = Math.max(4, Math.min(13, amp));
+  var keys = [0, -a, a*0.76, -a*0.52, a*0.33, -a*0.18, a*0.07, 0].map(function(v){ return {transform:'rotate(' + v.toFixed(2) + 'deg)'}; });
+  hoverSwing = badge.animate(keys, {duration:2700, easing:'cubic-bezier(.25,.6,.35,1)', composite:'add'});
+  hoverSwing.onfinish = function(){ hoverSwing = null; };
+  hoverSwing.oncancel = function(){ hoverSwing = null; };
+}
+$('#badgeHit').addEventListener('pointerenter', function(e){
+  if(!finePointer.matches) return;
+  lastHX = e.clientX; lastHT = Date.now();
+  swingBadge(9);
 });
+$('#badgeHit').addEventListener('pointermove', function(e){
+  if(!finePointer.matches || mode !== 'hero' || RM) return;
+  var now = Date.now();
+  if(lastHX === null){ lastHX = e.clientX; lastHT = now; return; }
+  var dx = e.clientX - lastHX, dt = Math.max(16, now - lastHT);
+  lastHX = e.clientX; lastHT = now;
+  var v = Math.abs(dx)/dt;
+  if(Math.abs(dx) > 14 && v > 0.25) swingBadge(6 + v*7);
+});
+$('#badgeHit').addEventListener('pointerleave', function(){ lastHX = null; });
 $('#badgeHit').addEventListener('click', function(){ if(mode === 'hero') sheet.classList.toggle('open'); });
 /* mobile ID card: drag it sideways and it swings; tap it and the contacts open */
 (function(){
@@ -754,139 +950,143 @@ function V(src, poster, cap){ return {t:'v', src:src, poster:poster, cap:cap}; }
 function I(src, cap){ return {t:'i', src:src, cap:cap}; }
 var GALLERIES = [
 { id:'g-caroline', tag:'AI Influencer · Instagram', title:'Caroline Langford',
-  desc:'My first AI model — an influencer built and run end to end: face, wardrobe, locations, captions and posting rhythm. Every photo and video of her work, in one place — use the side arrows to go through all of it.',
+  desc:'My first AI model — an influencer built and run end to end: face, wardrobe, locations, captions and posting rhythm. Every photo and video of her work is in the slider — use the side arrows to go through all of it. Her Instagram result is showcased separately, right below the slider.',
   stats:['75.7K followers / 1 month','Millions of views','17 photos · 3 videos'],
+  feature:{ img:'assets/asset-012.jpg', alt:'Caroline Langford on Instagram — @shycarolinehere: 93 posts, 75.7K followers, 98 following',
+    kick:'The result — her Instagram', big:'75.7K', title:'followers in her first month',
+    text:'This is her actual Instagram profile — @shycarolinehere — the account I built and run for her: 93 posts in, 75.7K followers, in month one. Not a mockup and not a projection — the account itself, screenshotted.',
+    chips:['@shycarolinehere','93 posts','Month one'] },
   items:[
-    I('assets/asset-007.jpg','Caroline Langford — studio portrait, sequin butterfly top'),
-    V('assets/asset-003.mp4','assets/asset-008.jpg','Fashion-show walk — video'),
-    I('assets/asset-009.jpg','Garden editorial — embellished gown'),
-    I('assets/asset-010.jpg','Red gown — street fashion show'),
-    V('assets/asset-004.mp4','assets/asset-011.jpg','Office scene — video'),
-    I('assets/asset-012.jpg','Café lifestyle shot'),
-    I('assets/asset-013.jpg','Night street portrait'),
-    I('assets/asset-014.jpg','Café table — lifestyle content'),
-    I('assets/asset-015.jpg','On her phone — candid moment'),
-    V('assets/asset-005.mp4','assets/asset-016.jpg','Stage interview — video'),
-    I('assets/asset-017.jpg','Black off-shoulder street look'),
-    I('assets/asset-018.jpg','Outdoor portrait — maroon top'),
-    I('assets/asset-019.jpg','Bouquet portrait'),
-    I('assets/asset-020.jpg','Product-in-hand lifestyle shot'),
-    I('assets/asset-021.jpg','Brick-lane look — all black'),
-    I('assets/asset-022.jpg','Close portrait — red top'),
-    I('assets/asset-023.jpg','Mirror selfie'),
-    I('assets/asset-024.jpg','Garden portrait — maroon halter'),
-    I('assets/asset-025.jpg','Sporty look — black cap'),
-    I('assets/asset-026.jpg','Rose garden — rust top')
+    I('assets/asset-013.jpg','Caroline Langford — studio portrait, sequin butterfly top'),
+    V('assets/asset-003.mp4','assets/asset-014.jpg','Fashion-show walk — video'),
+    I('assets/asset-015.jpg','Garden editorial — embellished gown'),
+    I('assets/asset-016.jpg','Red gown — street fashion show'),
+    V('assets/asset-004.mp4','assets/asset-017.jpg','Office scene — video'),
+    I('assets/asset-018.jpg','Café lifestyle shot'),
+    I('assets/asset-019.jpg','Night street portrait'),
+    I('assets/asset-020.jpg','Café table — lifestyle content'),
+    I('assets/asset-021.jpg','On her phone — candid moment'),
+    V('assets/asset-005.mp4','assets/asset-022.jpg','Stage interview — video'),
+    I('assets/asset-023.jpg','Black off-shoulder street look'),
+    I('assets/asset-024.jpg','Outdoor portrait — maroon top'),
+    I('assets/asset-025.jpg','Bouquet portrait'),
+    I('assets/asset-026.jpg','Product-in-hand lifestyle shot'),
+    I('assets/asset-027.jpg','Brick-lane look — all black'),
+    I('assets/asset-028.jpg','Close portrait — red top'),
+    I('assets/asset-029.jpg','Mirror selfie'),
+    I('assets/asset-030.jpg','Garden portrait — maroon halter'),
+    I('assets/asset-031.jpg','Sporty look — black cap'),
+    I('assets/asset-032.jpg','Rose garden — rust top')
   ]},
 { id:'g-vaani', tag:'AI Model · Brand Work', title:'Vaani Garg',
   desc:'An AI model created for brand work — jewellery, beauty, saree and editorial shoots, delivered as photo and video campaigns. Her full WORK gallery plus her 360° turn.',
   stats:['15 brand shoots','Photo + video','360° turn'],
   items:[
-    I('assets/asset-027.jpg','Vaani Garg — studio headshot, red top'),
-    V('assets/asset-006.mp4','assets/asset-028.jpg','Vaani — 360° turn video'),
-    I('assets/asset-029.jpg','Yunjac cream — product in hand'),
-    I('assets/asset-030.jpg','Yunjac cream — application shot'),
-    I('assets/asset-031.jpg','Dior lipstick — beauty shot'),
-    I('assets/asset-032.jpg','Hazoorilal — jewellery campaign'),
-    I('assets/asset-033.jpg','Kalyan Jewellers — campaign'),
-    I('assets/asset-034.jpg','Party lehenga — collage'),
-    I('assets/asset-035.jpg','Party-wear saree'),
-    I('assets/asset-036.jpg','Ethnos — royal blue saree'),
-    I('assets/asset-037.jpg','Khush Magazine — cover'),
-    I('assets/asset-038.jpg','Elegance — pink saree'),
-    I('assets/asset-039.jpg','Pink lehenga — close-up'),
-    I('assets/asset-040.jpg','Von Dutch — airport look'),
-    I('assets/asset-041.jpg','Von Dutch — vending shoot'),
-    I('assets/asset-042.jpg','Von Dutch — vending, side look'),
-    I('assets/asset-043.jpg','Variety — interview shoot')
+    I('assets/asset-033.jpg','Vaani Garg — studio headshot, red top'),
+    V('assets/asset-006.mp4','assets/asset-034.jpg','Vaani — 360° turn video'),
+    I('assets/asset-035.jpg','Yunjac cream — product in hand'),
+    I('assets/asset-036.jpg','Yunjac cream — application shot'),
+    I('assets/asset-037.jpg','Dior lipstick — beauty shot'),
+    I('assets/asset-038.jpg','Hazoorilal — jewellery campaign'),
+    I('assets/asset-039.jpg','Kalyan Jewellers — campaign'),
+    I('assets/asset-040.jpg','Party lehenga — collage'),
+    I('assets/asset-041.jpg','Party-wear saree'),
+    I('assets/asset-042.jpg','Ethnos — royal blue saree'),
+    I('assets/asset-043.jpg','Khush Magazine — cover'),
+    I('assets/asset-044.jpg','Elegance — pink saree'),
+    I('assets/asset-045.jpg','Pink lehenga — close-up'),
+    I('assets/asset-046.jpg','Von Dutch — airport look'),
+    I('assets/asset-047.jpg','Von Dutch — vending shoot'),
+    I('assets/asset-048.jpg','Von Dutch — vending, side look'),
+    I('assets/asset-049.jpg','Variety — interview shoot')
   ]},
 { id:'g-genie', tag:'AI Model · AI-Generated', title:'Genie',
   desc:'An AI-generated model created by me — hyper-realistic studio portraiture, styled and directed end to end. Her gallery starts here; more of her shoots will be added as they are made.',
   stats:['Height 5\u20325\u2033','Age 21','Female','Indian · Based in India'],
   items:[
-    I('assets/asset-044.jpg','Genie — studio portrait, black sequin look')
+    I('assets/asset-050.jpg','Genie — studio portrait, black sequin look')
   ]},
 { id:'g-shrishti', tag:'AI Model · AI-Generated', title:'Shrishti',
   desc:'An AI-generated model created by me — hyper-realistic studio portraiture, styled and directed end to end. Her gallery starts here; more of her shoots will be added as they are made.',
   stats:['Height 5\u20322\u2033','Age 27','Female','Indian · Based in India'],
   items:[
-    I('assets/asset-045.jpg','Shrishti — studio portrait, cream & pink traditional look')
+    I('assets/asset-051.jpg','Shrishti — studio portrait, cream & pink traditional look')
   ]},
 { id:'g-ember', tag:'AI Film · World & Character Design', title:'The Last Ember',
   desc:'An AI movie built shot by shot — character sheets, locations, equipment and a fire drake, held consistent across the whole world. Watch the snow-scene clip, then flip through the design sheets.',
   stats:['Character design','Full world building','2026'],
   items:[
-    V('assets/asset-007.mp4','assets/asset-046.jpg','The Last Ember — snow-scene clip'),
-    I('assets/asset-047.jpg','Eren Vale — character sheet'),
-    I('assets/asset-048.jpg','Kael Arden — character sheet'),
-    I('assets/asset-049.jpg','Mara Holt — character sheet'),
-    I('assets/asset-050.jpg','Sera Venn — character sheet'),
-    I('assets/asset-051.jpg','Sera Venn — grey look'),
-    I('assets/asset-052.jpg','Iven Marr — character sheet'),
-    I('assets/asset-053.jpg','Tovan Reed — character sheet'),
-    I('assets/asset-054.jpg','The Keeper — character sheet'),
-    I('assets/asset-055.jpg','Veyr — the fire drake'),
-    I('assets/asset-056.jpg','Veyr — drake raised'),
-    I('assets/asset-057.jpg','Veyr — saddle design'),
-    I('assets/asset-058.jpg','Equipment sheet'),
-    I('assets/asset-051.jpg','Locations sheet'),
-    I('assets/asset-059.jpg','The Quarry of the Dead — location'),
-    I('assets/asset-060.jpg','Continuity sheet — holding the world together')
+    V('assets/asset-007.mp4','assets/asset-052.jpg','The Last Ember — snow-scene clip'),
+    I('assets/asset-053.jpg','Eren Vale — character sheet'),
+    I('assets/asset-054.jpg','Kael Arden — character sheet'),
+    I('assets/asset-055.jpg','Mara Holt — character sheet'),
+    I('assets/asset-056.jpg','Sera Venn — character sheet'),
+    I('assets/asset-057.jpg','Sera Venn — grey look'),
+    I('assets/asset-058.jpg','Iven Marr — character sheet'),
+    I('assets/asset-059.jpg','Tovan Reed — character sheet'),
+    I('assets/asset-060.jpg','The Keeper — character sheet'),
+    I('assets/asset-061.jpg','Veyr — the fire drake'),
+    I('assets/asset-062.jpg','Veyr — drake raised'),
+    I('assets/asset-063.jpg','Veyr — saddle design'),
+    I('assets/asset-064.jpg','Equipment sheet'),
+    I('assets/asset-057.jpg','Locations sheet'),
+    I('assets/asset-065.jpg','The Quarry of the Dead — location'),
+    I('assets/asset-066.jpg','Continuity sheet — holding the world together')
   ]},
 { id:'g-editing', tag:'Video Editing · Client Work', title:'Video Editing — Edited Videos',
   desc:'All my edited videos in one slider — sales explainers, coaching promos, ads and reels for clients in India, the US and Germany. Press the side arrows to go from one edited video to the next. (Short previews, up to ~60 seconds each.)',
   stats:['9 edited videos','Ads · Promos · Reels','India · US · Germany'],
   items:[
-    V('assets/asset-008.mp4','assets/asset-061.jpg','Sales explainer — kinetic typography'),
-    V('assets/asset-009.mp4','assets/asset-062.jpg','ICF coaching — promo'),
-    V('assets/asset-010.mp4','assets/asset-063.jpg','ICF coaching — short cut'),
-    V('assets/asset-011.mp4','assets/asset-064.jpg','NEET — admission ad'),
-    V('assets/asset-012.mp4','assets/asset-065.jpg','NEET coaching — promo'),
-    V('assets/asset-013.mp4','assets/asset-066.jpg','German health reel'),
-    V('assets/asset-014.mp4','assets/asset-067.jpg','Hindi education promo'),
-    V('assets/asset-015.mp4','assets/asset-068.jpg','CA firm — enquiries ad'),
-    V('assets/asset-016.mp4','assets/asset-069.jpg','Tech presenter — iPhone')
+    V('assets/asset-008.mp4','assets/asset-067.jpg','Sales explainer — kinetic typography'),
+    V('assets/asset-009.mp4','assets/asset-068.jpg','ICF coaching — promo'),
+    V('assets/asset-010.mp4','assets/asset-069.jpg','ICF coaching — short cut'),
+    V('assets/asset-011.mp4','assets/asset-070.jpg','NEET — admission ad'),
+    V('assets/asset-012.mp4','assets/asset-071.jpg','NEET coaching — promo'),
+    V('assets/asset-013.mp4','assets/asset-072.jpg','German health reel'),
+    V('assets/asset-014.mp4','assets/asset-073.jpg','Hindi education promo'),
+    V('assets/asset-015.mp4','assets/asset-074.jpg','CA firm — enquiries ad'),
+    V('assets/asset-016.mp4','assets/asset-075.jpg','Tech presenter — iPhone')
   ]},
 { id:'g-design', tag:'Graphic Design · E-books', title:'Graphic Design & E-books',
   desc:'Design work in one slider — the full 13-book Grandparent\u2019s Ultimate Bundle collection (covers I designed and laid out) plus brand posts for Chaitanya Wellness.',
   stats:['13 e-book covers','Collection poster','Brand posts'],
   items:[
-    I('assets/asset-070.jpg','The Grandparent\u2019s Ultimate Bundle — all 13 books'),
-    I('assets/asset-071.jpg','Words That Will Outlive Me — cover'),
-    I('assets/asset-072.jpg','Sealed With Love — cover'),
-    I('assets/asset-073.jpg','The Grandparent & Me Activity Book — cover'),
-    I('assets/asset-074.jpg','Whispers for Bedtime — cover'),
-    I('assets/asset-075.jpg','The Life That Made Me — cover'),
-    I('assets/asset-076.jpg','Twelve Things I Need You to Know — cover'),
-    I('assets/asset-077.jpg','The Sleep Whisperer — cover'),
-    I('assets/asset-078.jpg','First Steps, First Words — cover'),
-    I('assets/asset-079.jpg','What Changed Since We Raised Babies — bundle bonus cover'),
-    I('assets/asset-080.jpg','First Foods, Happy Tummies — bundle bonus cover'),
-    I('assets/asset-081.jpg','When Baby Is Sick — bundle bonus cover'),
-    I('assets/asset-082.jpg','Everyday Care Done Right — bundle bonus cover'),
-    I('assets/asset-083.jpg','How to Help Without Overstepping — bundle bonus cover'),
-    I('assets/asset-084.jpg','Chaitanya Wellness — acne & PCOS post'),
-    I('assets/asset-085.jpg','Chaitanya Wellness — PCOD post')
+    I('assets/asset-076.jpg','The Grandparent\u2019s Ultimate Bundle — all 13 books'),
+    I('assets/asset-077.jpg','Words That Will Outlive Me — cover'),
+    I('assets/asset-078.jpg','Sealed With Love — cover'),
+    I('assets/asset-079.jpg','The Grandparent & Me Activity Book — cover'),
+    I('assets/asset-080.jpg','Whispers for Bedtime — cover'),
+    I('assets/asset-081.jpg','The Life That Made Me — cover'),
+    I('assets/asset-082.jpg','Twelve Things I Need You to Know — cover'),
+    I('assets/asset-083.jpg','The Sleep Whisperer — cover'),
+    I('assets/asset-084.jpg','First Steps, First Words — cover'),
+    I('assets/asset-085.jpg','What Changed Since We Raised Babies — bundle bonus cover'),
+    I('assets/asset-086.jpg','First Foods, Happy Tummies — bundle bonus cover'),
+    I('assets/asset-087.jpg','When Baby Is Sick — bundle bonus cover'),
+    I('assets/asset-088.jpg','Everyday Care Done Right — bundle bonus cover'),
+    I('assets/asset-089.jpg','How to Help Without Overstepping — bundle bonus cover'),
+    I('assets/asset-090.jpg','Chaitanya Wellness — acne & PCOS post'),
+    I('assets/asset-091.jpg','Chaitanya Wellness — PCOD post')
   ]},
 { id:'g-patiala', tag:'Client Growth · Men\u2019s Wear', title:'Patiala Touch',
   desc:'A men\u2019s wear shop taken from 400 to 10K followers in one month — powered by one reel that reached 32.4 million views. The insights recording and the result screenshots, in one slider.',
   stats:['400 → 10K / 1 month','32.4M-view reel'],
   items:[
-    V('assets/asset-017.mp4','assets/asset-086.jpg','Follower insights — screen recording'),
-    I('assets/asset-087.jpg','Patiala Touch — profile header'),
-    I('assets/asset-088.jpg','Profile grid'),
-    I('assets/asset-089.jpg','Breakout reel insights — 32.4M views'),
-    I('assets/asset-090.jpg','Reel insights')
+    V('assets/asset-017.mp4','assets/asset-092.jpg','Follower insights — screen recording'),
+    I('assets/asset-093.jpg','Patiala Touch — profile header'),
+    I('assets/asset-094.jpg','Profile grid'),
+    I('assets/asset-095.jpg','Breakout reel insights — 32.4M views'),
+    I('assets/asset-096.jpg','Reel insights')
   ]},
 { id:'g-facebook', tag:'Video Editing · Facebook Pages', title:'Facebook Pages — US Audience',
   desc:'Reels produced and edited for family-niche Facebook pages, plus growth on my own profile. The result screenshots, page by page.',
   stats:['573K views / 30 days','1.4M-view reel','30K personal followers'],
   items:[
-    I('assets/asset-091.jpg','The Family with Baby — 573K views in 30 days'),
-    I('assets/asset-092.jpg','The Family with Baby — top reels'),
-    I('assets/asset-093.jpg','Try New Things — 1.4M-view reel'),
-    I('assets/asset-094.jpg','Entertainment & Knowledge — 179K-view reel'),
-    I('assets/asset-095.jpg','Personal profile — 30K followers')
+    I('assets/asset-097.jpg','The Family with Baby — 573K views in 30 days'),
+    I('assets/asset-098.jpg','The Family with Baby — top reels'),
+    I('assets/asset-099.jpg','Try New Things — 1.4M-view reel'),
+    I('assets/asset-100.jpg','Entertainment & Knowledge — 179K-view reel'),
+    I('assets/asset-101.jpg','Personal profile — 30K followers')
   ]}
 ];
 var galMount = $('#galleries'), galObjs = [], activeGal = null;
@@ -917,6 +1117,20 @@ function buildGalleries(){
     var meta = document.createElement('div'); meta.className = 'gal-meta';
     meta.innerHTML = '<span class="gal-cap"></span><span class="gal-count"></span>';
     sec.appendChild(meta);
+    if(g.feature){
+      var ft = document.createElement('div'); ft.className = 'gal-feature glass';
+      var fshot = document.createElement('div'); fshot.className = 'shot';
+      var fimg = document.createElement('img'); fimg.src = g.feature.img; fimg.alt = g.feature.alt; fimg.loading = 'lazy';
+      fshot.appendChild(fimg); ft.appendChild(fshot);
+      var ftx = document.createElement('div');
+      var fk = document.createElement('div'); fk.className = 'kick'; fk.textContent = g.feature.kick; ftx.appendChild(fk);
+      var fb = document.createElement('div'); fb.className = 'big'; fb.textContent = g.feature.big; ftx.appendChild(fb);
+      var fh = document.createElement('h3'); fh.textContent = g.feature.title; ftx.appendChild(fh);
+      var fp = document.createElement('p'); fp.textContent = g.feature.text; ftx.appendChild(fp);
+      var fm = document.createElement('div'); fm.className = 'mini';
+      g.feature.chips.forEach(function(x){ var c = document.createElement('span'); c.className = 'chip'; c.textContent = x; fm.appendChild(c); });
+      ftx.appendChild(fm); ft.appendChild(ftx); sec.appendChild(ft);
+    }
     galMount.appendChild(sec);
     var obj = { g:g, sec:sec, stage:stage, img:stage.querySelector('img'), vid:stage.querySelector('video'),
       cap:meta.querySelector('.gal-cap'), count:meta.querySelector('.gal-count'),
