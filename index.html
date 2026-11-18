@@ -22,7 +22,7 @@
   --green-900:#0b2f20; --green-800:#11402c; --accent:#2e5e4e; --accent2:#1a5a40;
   --mint:#cfeee0; --ink:#101613; --paper:#ffffff; --soft:#f3f6f4;
   --n:1px; --glide:0s; --mbs:.2;
-  --glass:rgba(255,255,255,.72); --glass-brd:rgba(46,94,78,.14);
+  --glass:rgba(255,255,255,.52); --glass-brd:rgba(46,94,78,.32);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -118,11 +118,11 @@ body.busy .hint{visibility:hidden}
 /* ================= INSIDE: WHITE GLASS PORTFOLIO ================= */
 .portfolio{position:fixed;inset:0;z-index:30;background:linear-gradient(180deg,#fcfcf9 0%,#f1f4f1 55%,#edf1ee 100%);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;overflow-y:auto;overflow-x:hidden;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s;-webkit-overflow-scrolling:touch}
 .portfolio.show{opacity:1;visibility:visible;transition:opacity .55s ease}
-.portfolio::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(700px 380px at 12% -40px,rgba(46,94,78,.10),transparent 65%),radial-gradient(700px 420px at 95% 18%,rgba(46,94,78,.08),transparent 65%)}
+.portfolio::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(700px 380px at 12% -40px,rgba(46,94,78,.05),transparent 65%),radial-gradient(700px 420px at 95% 18%,rgba(46,94,78,.04),transparent 65%)}
 .p-wrap{max-width:1120px;margin:0 auto;padding:0 22px 90px;position:relative}
-.glass{background:var(--glass);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);border:1px solid var(--glass-brd);box-shadow:0 14px 36px rgba(16,40,30,.08)}
+.glass{background:var(--glass);backdrop-filter:blur(26px) saturate(1.55);-webkit-backdrop-filter:blur(26px) saturate(1.55);border:1px solid var(--glass-brd);box-shadow:0 20px 46px rgba(16,40,30,.15),inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.35)}
 .p-head{position:sticky;top:14px;z-index:50;margin-top:14px;border-radius:16px;padding:10px 12px 10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.p-head .brand{font-family:'Fraunces',serif;font-weight:800;font-size:19px;letter-spacing:.04em;margin-right:auto}
+.p-head .brand{font-family:'Fraunces',serif;font-weight:800;font-size:23px;letter-spacing:.04em;margin-right:auto}
 .p-head nav{display:flex;gap:4px;flex-wrap:wrap}
 .p-head nav a{text-decoration:none;font-size:13.5px;font-weight:600;padding:8px 11px;border-radius:999px;color:#26332d}
 .p-head nav a:hover{background:rgba(46,94,78,.09)}
@@ -131,13 +131,13 @@ body.busy .hint{visibility:hidden}
 .btn-solid:hover{background:#244f40}
 .btn-ghost{background:rgba(255,255,255,.7);border-color:var(--glass-brd);color:var(--ink)}
 .btn-exit{background:#101613;color:#fff}
-.p-hero{padding:64px 0 10px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
-.p-kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
-.p-hero h1{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(38px,5.6vw,64px);line-height:1.04;letter-spacing:-.01em;margin-top:14px}
+.p-hero{padding:64px 0 10px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.p-kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.48);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(16px) saturate(1.55);-webkit-backdrop-filter:blur(16px) saturate(1.55)}
+.p-hero h1{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(42px,6vw,74px);line-height:1.04;letter-spacing:-.01em;margin-top:14px}
 .role-card{display:inline-block;margin-top:18px;background:#fffdf4;border:1px solid rgba(16,22,19,.12);box-shadow:0 16px 30px rgba(16,40,30,.12);border-radius:8px;padding:14px 22px;transform:rotate(-2deg);font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--accent);min-width:min(420px,100%);text-align:center}
 .role-card span{display:block;transition:opacity .3s ease,transform .3s ease}
 .p-lede{margin-top:18px;font-size:16.5px;line-height:1.6;color:#3c4741;max-width:52ch}
-.p-photo{border-radius:22px;overflow:hidden;position:relative;min-height:340px;background:linear-gradient(180deg,#ececea,#f7f7f4)}
+.p-photo{border-radius:22px;overflow:hidden;position:relative;min-height:560px;background:#ffffff;border:1px solid transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .p-photo img,.p-photo video{width:100%;height:100%;object-fit:cover;object-position:50% 0;position:absolute;inset:0}
 .p-photo .cap{position:absolute;left:12px;right:12px;bottom:12px;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700;letter-spacing:.06em}
 .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
@@ -145,7 +145,7 @@ body.busy .hint{visibility:hidden}
 .proof .num{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--accent);line-height:1}
 .proof .lab{margin-top:8px;font-size:13px;line-height:1.45;color:#3c4741;font-weight:600}
 /* ================= SKILLS ================= */
-.skills-list{margin-top:30px;background:var(--glass);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);border:1px solid var(--glass-brd);border-radius:18px;box-shadow:0 14px 36px rgba(16,40,30,.08);padding:4px 22px}
+.skills-list{margin-top:30px;background:var(--glass);backdrop-filter:blur(26px) saturate(1.55);-webkit-backdrop-filter:blur(26px) saturate(1.55);border:1px solid var(--glass-brd);border-radius:18px;box-shadow:0 20px 46px rgba(16,40,30,.15),inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.35);padding:4px 22px}
 .skill-row{display:grid;grid-template-columns:52px 46px 1fr auto;gap:6px 20px;padding:22px 4px;border-bottom:1px solid rgba(46,94,78,.14);align-items:baseline}
 .skill-row:last-child{border-bottom:0}
 .skill-row .no{font-family:'Fraunces',serif;font-size:15px;font-weight:800;color:var(--accent);opacity:.65}
@@ -155,8 +155,8 @@ body.busy .hint{visibility:hidden}
 .tools-strip{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .tools-strip .tl{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#5a665f;margin-right:4px}
 .p-sec{margin-top:74px}
-.p-sec h2{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(30px,4.4vw,46px);line-height:1.08}
-.p-sec h2::after{content:"";display:block;width:58px;height:2px;border-radius:2px;background:var(--accent);opacity:.5;margin-top:15px}
+.p-sec h2{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(34px,4.8vw,54px);line-height:1.08}
+.p-sec h2::after{content:"";display:block;width:76px;height:3px;border-radius:2px;background:var(--accent);opacity:.65;margin-top:16px;box-shadow:0 7px 0 rgba(46,94,78,.35)}
 .p-sec .sub{margin-top:10px;color:#3c4741;font-size:15.5px;line-height:1.6;max-width:62ch}
 .doors{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
 .door{border-radius:120px 120px 18px 18px;padding:34px 16px 22px;text-align:center;cursor:pointer;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;transition:transform .25s ease,box-shadow .25s ease;font-family:inherit;color:var(--ink)}
@@ -170,9 +170,9 @@ body.busy .hint{visibility:hidden}
 .door-panel h3{font-family:'Fraunces',serif;font-size:24px}
 .door-panel p{margin-top:8px;line-height:1.65;color:#3c4741;font-size:15px;max-width:70ch}
 .door-panel .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.chip{border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
+.chip{border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;background:rgba(255,255,255,.48);border:1px solid var(--glass-brd);backdrop-filter:blur(16px) saturate(1.55);-webkit-backdrop-filter:blur(16px) saturate(1.55)}
 /* ================= WORK GALLERIES (classic sliders) ================= */
-.gal-head .tagline{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:6px 12px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
+.gal-head .tagline{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.48);border:1px solid var(--glass-brd);border-radius:999px;padding:6px 12px;backdrop-filter:blur(16px) saturate(1.55);-webkit-backdrop-filter:blur(16px) saturate(1.55)}
 .gal-head h2{margin-top:6px}
 .gal-head .stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .gal-stage{position:relative;margin-top:22px;border-radius:20px;background:#0c120e;overflow:hidden;height:min(76vh,680px);height:min(76dvh,680px);border:1px solid rgba(16,40,30,.3);box-shadow:0 24px 50px rgba(16,40,30,.18)}
@@ -222,13 +222,13 @@ body.busy .hint{visibility:hidden}
 .j-stop:first-of-type{margin-top:0}
 .j-card{border-radius:18px;padding:22px}
 .j-stop.flip .j-card{grid-column:3}
-.j-card .yr{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--accent);line-height:1}
+.j-card .yr{font-family:'Fraunces',serif;font-size:clamp(30px,3.6vw,42px);font-weight:800;color:var(--accent);line-height:1}
 .j-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:650;margin-top:8px;letter-spacing:0;line-height:1.25}
 .j-card p{margin-top:7px;font-size:14.5px;line-height:1.65;color:#3c4741}
 .j-card ul{list-style:none;margin-top:12px;display:grid;gap:7px}
 .j-card li{position:relative;font-size:13.5px;line-height:1.5;color:#26332d;font-weight:600;padding-left:17px}
 .j-card li::before{content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.j-card .res{display:inline-block;margin-top:14px;font-family:'Fraunces',serif;font-weight:800;font-size:15.5px;color:var(--accent);background:rgba(255,255,255,.62);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
+.j-card .res{display:inline-block;margin-top:14px;font-family:'Fraunces',serif;font-weight:800;font-size:15.5px;color:var(--accent);background:rgba(255,255,255,.48);border:1px solid var(--glass-brd);border-radius:999px;padding:7px 14px;backdrop-filter:blur(16px) saturate(1.55);-webkit-backdrop-filter:blur(16px) saturate(1.55)}
 .j-node{grid-column:2;justify-self:center;position:relative;z-index:2;width:24px;height:24px;margin-top:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 0 0 6px rgba(46,94,78,.12),0 6px 14px rgba(16,40,30,.18)}
 .j-shot{grid-column:3;border-radius:14px;overflow:hidden;align-self:start;margin-top:2px}
 .j-stop.flip .j-shot{grid-column:1;grid-row:1}
@@ -253,7 +253,7 @@ body.busy .hint{visibility:hidden}
 /* skill + tool brand marks */
 .skill-ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.75);border:1px solid var(--glass-brd);display:flex;align-items:center;justify-content:center;color:var(--accent);align-self:start}
 .skill-ic svg{width:23px;height:23px;display:block}
-.tool-chip{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:7px 15px 7px 8px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.72);border:1px solid var(--glass-brd);color:#26332d;backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3)}
+.tool-chip{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:7px 15px 7px 8px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.72);border:1px solid var(--glass-brd);color:#26332d;backdrop-filter:blur(16px) saturate(1.55);-webkit-backdrop-filter:blur(16px) saturate(1.55)}
 .tool-chip .lg{width:25px;height:25px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
 .tool-chip .lg svg{width:17px;height:17px;display:block}
 .btn .bic{display:inline-flex;align-items:center;justify-content:center;flex:none}
@@ -266,7 +266,7 @@ body.busy .hint{visibility:hidden}
 .win{border-radius:18px;padding:22px}
 .win h3{font-family:'Fraunces',serif;font-size:20px}
 .win p{margin-top:7px;font-size:14px;line-height:1.6;color:#3c4741}
-.cta{margin-top:80px;border-radius:24px;padding:42px 30px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(207,238,224,.55));border:1px solid var(--glass-brd);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35)}
+.cta{margin-top:80px;border-radius:24px;padding:42px 30px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(207,238,224,.55));border:1px solid var(--glass-brd);backdrop-filter:blur(26px) saturate(1.55);-webkit-backdrop-filter:blur(26px) saturate(1.55)}
 .cta h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,50px);font-weight:650}
 .cta p{margin:12px auto 0;color:#3c4741;font-size:15.5px;max-width:52ch;line-height:1.6}
 .cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
@@ -451,7 +451,7 @@ body.busy .hint{visibility:hidden}
       <div class="cell glass"><div class="num">75.7K</div><div class="lab">followers in 1 month — Caroline, AI influencer</div></div>
       <div class="cell glass"><div class="num">32.4M</div><div class="lab">views on one reel — Patiala Touch</div></div>
       <div class="cell glass"><div class="num">400 → 10K</div><div class="lab">followers in 1 month — Patiala Touch</div></div>
-      <div class="cell glass"><div class="num">₹2 lakh</div><div class="lab">first website sold — built at the start of the journey</div></div>
+      <div class="cell glass"><div class="num">₹9–10 lakh</div><div class="lab">total from the first website — US$7,686.43 AdSense + ₹2 lakh sale</div></div>
     </section>
 
     <section class="p-sec" id="skills">
@@ -498,13 +498,14 @@ body.busy .hint{visibility:hidden}
         <div class="tagline">Websites · Google AdSense</div>
         <h2>My Websites</h2>
         <p class="sub">Before the pages and the models, I built and ran my own websites. The results in brief — with the full AdSense screenshots shown big, so every number is easy to read.</p>
-        <div class="stats"><span class="chip">First website sold — ₹2 lakh</span><span class="chip">Second website — ₹40–70K / month at its run</span></div>
+        <div class="stats"><span class="chip">First website — around ₹9–10 lakh total (AdSense + sale)</span><span class="chip">Second website — ₹40–70K / month at its run</span></div>
       </div>
       <div class="web-grid">
         <article class="web-card glass">
           <div class="kick">First website · Entertainment news</div>
           <h3>US$7,686.43 in year one</h3>
-          <p>June 2022 – May 2023 on Google AdSense: <b>US$7,686.43</b> total estimated earnings, <b>10,527,067</b> impressions and <b>1,565,950</b> page views. I later sold this website for ₹2 lakh. The payments screenshot shows monthly ending balances left after each payout — not extra earnings on top.</p>
+          <p>June 2022 – May 2023 on Google AdSense: <b>US$7,686.43</b> total estimated earnings, <b>10,527,067</b> impressions and <b>1,565,950</b> page views. I later sold this website for ₹2 lakh. Put together — the AdSense earnings plus the sale price — this one website made me <b>around ₹9–10 lakh</b> in total. The payments screenshot shows monthly ending balances left after each payout — not extra earnings on top.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><span class="chip">AdSense all-time — US$7,686.43</span><span class="chip">Website sale — ₹2 lakh</span><span class="chip">Combined — around ₹9–10 lakh</span></div>
           <div class="web-shots">
             <figure><img src="assets/asset-007.jpg" alt="First website — Google AdSense Reports, June 2022 to May 2023, total estimated earnings US$7,686.43" loading="lazy" /><figcaption>Reports — US$7,686.43 total, Jun 2022 – May 2023</figcaption></figure>
             <figure><img src="assets/asset-008.jpg" alt="First website — Google AdSense Payments, monthly ending balances January to June 2023" loading="lazy" /><figcaption>Payments — monthly ending balances, Jan – Jun 2023</figcaption></figure>
@@ -532,13 +533,14 @@ body.busy .hint{visibility:hidden}
           <article class="j-card glass">
             <div class="yr">2021</div>
             <h3>Where it started — the first website</h3>
-            <p>It began with one question: can the internet actually pay? I built my first entertainment news website from scratch, learned how content ranks and how AdSense works, and got it approved and earning. It ran for a year and a half — and then I sold it, for ₹2 lakh. That first sale changed everything: this stopped being “trying things online” and became the plan.</p>
+            <p>It began with one question: can the internet actually pay? I built my first entertainment news website from scratch, learned how content ranks and how AdSense works, and got it approved and earning. It ran for a year and a half, earning US$7,686.43 in AdSense revenue along the way — and then I sold it, for ₹2 lakh. Put together, that one website made me around ₹9–10 lakh in total. That first success changed everything: this stopped being “trying things online” and became the plan.</p>
             <ul>
               <li>First entertainment news website — built from scratch and approved on AdSense</li>
               <li>Ran for 1.5 years, earning ₹40–60K a month</li>
-              <li>Sold the website for ₹2 lakh — my first big online earning</li>
+              <li>All-time AdSense revenue of US$7,686.43 — then sold the website for ₹2 lakh</li>
+              <li>Combined income from this one website: around ₹9–10 lakh</li>
             </ul>
-            <span class="res">Result: ₹2 lakh website sale</span>
+            <span class="res">Result: around ₹9–10 lakh — AdSense + website sale</span>
           </article>
           <div class="j-node" aria-hidden="true"></div>
           <figure class="j-shot glass">
