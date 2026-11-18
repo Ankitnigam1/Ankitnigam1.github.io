@@ -77,7 +77,7 @@ img,video{display:block;max-width:100%}
 .badge .card h4{font-size:30px;line-height:.95;font-weight:800;letter-spacing:-.5px}
 .badge .card .yr{position:absolute;right:16px;top:62px;font-size:11px;font-weight:700}
 .badge .card .role{margin-top:12px;padding-top:5px;border-top:1px solid #222;font-size:9.5px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
-.badge .card .ph{width:92px;height:112px;margin:12px auto;border-radius:6px;background-color:#e8e8e4;background-image:url(assets/asset-003.jpg);background-size:cover;background-position:50% 12%;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.badge .card .ph{width:92px;height:112px;margin:12px auto;border-radius:6px;background-color:#e8e8e4;background-image:url(assets/asset-003.jpg);background-size:cover;background-position:50% 50%;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
 .badge .card .row{display:flex;justify-content:space-between;align-items:flex-end;font-size:9px;font-weight:700;padding:6px 0 3px;border-bottom:1.5px dotted #333}
 .badge .card .row b{font-weight:600;text-align:right}
 .badge .card .row .em{font-size:8px;letter-spacing:-.2px}
@@ -285,7 +285,7 @@ body.busy .hint{visibility:hidden}
   .tag.t1{left:12px;top:12px}.tag.t2{left:auto;right:12px;top:12px}
   .tag.t3{right:auto;left:12px;top:calc(12px + var(--n)*44)}
   .tag.t4{right:12px;top:calc(12px + var(--n)*44)}
-  .m-wm{position:absolute;left:4vw;width:92vw;top:calc(12px + var(--n)*96);overflow:visible}
+  .m-wm{position:absolute;left:5vw;width:90vw;top:calc(12px + var(--n)*96);overflow:visible}
   .m-wm text{font-family:'Inter Tight';font-weight:900;font-size:208px;letter-spacing:-5px}
   .m-script{position:absolute;right:6vw;top:calc(12px + var(--n)*96 + 14vw);font-family:'Caveat Brush',cursive;font-size:15vw;line-height:1;color:#11402c;white-space:nowrap;transform:rotate(-7deg);text-shadow:0 0 6px #fff,0 0 14px #fff,0 2px 10px rgba(255,255,255,.6)}
   .m-badge{position:absolute;right:2vw;top:calc(12px + var(--n)*96 + 16.5vw + 12px);width:calc(582px*var(--mbs));height:calc(1030px*var(--mbs));z-index:5;transform-origin:50% 0;animation:sway 3.4s ease-in-out infinite alternate;touch-action:none;cursor:grab}
@@ -706,9 +706,11 @@ function pose(m){
   }
   if(isMobile()){
     /* person torso bbox x 333..979, centre 656 — centre him, frame bottom sits at the viewport bottom.
-       Framed wide enough (W/706) that his face reads big and clear and the laptop he holds stays mostly in frame.
-       Bottom-anchored at frame y 712, so the visible window always runs head (y~15) to waist (y~665). */
-    s = Math.min(W/706, 0.66*H/720); x = W/2 - 656*s; y = H - 712*s;
+       Framed at W/640 — a little bigger than the old W/706 so he reads clearly on a phone, while the
+       visible window (640 frame px, x 336..976) still holds essentially the whole torso and the laptop.
+       Bottom-anchored at frame y 712, so the visible window always runs head (y~15) to waist (y~665),
+       the same head-to-waist framing as desktop. */
+    s = Math.min(W/640, 0.72*H/720); x = W/2 - 656*s; y = H - 712*s;
     return {x:x, y:y, s:s};
   }
   /* HEAD-TO-WAIST framing: the scale is capped by H/700 and the frame is bottom-anchored at frame
@@ -741,7 +743,7 @@ function place(m){
   frame.classList.toggle('m-case', m === 'case');
   stage.classList.toggle('m-case', m === 'case');
   if(isMobile()){
-    var bw = Math.max(118, Math.min(0.38*W, 205));
+    var bw = Math.max(138, Math.min(0.46*W, 238));
     root.style.setProperty('--mbs', (bw/582).toFixed(4));
   }
   if(m === 'hero' && !isMobile()) fitHero(p);
