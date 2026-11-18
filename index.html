@@ -729,14 +729,23 @@ function pose(m){
     return {x:W/2 - 640*s, y:H/2 - 361*s, s:s};
   }
   if(isMobile()){
-    /* person torso bbox x 333..979, centre 656 — centre him, frame bottom sits at the viewport bottom.
-       Framed at W/640 — a little bigger than the old W/706 so he reads clearly on a phone, while the
-       visible window (640 frame px, x 336..976) still holds essentially the whole torso and the laptop.
-       Bottom-anchored at the waist line, frame y 665 (uplifted from the old 712 anchor, which let the
-       screen cut him below the waist around the stomach and made him look sunk in the frame), so the
-       visible window always runs head (y~15) to waist (y~665) — a clean head-to-waist shot, the same
-       head-to-waist framing as desktop. Mobile only; the desktop pose below is untouched. */
-    s = Math.min(W/640, 0.72*H/720); x = W/2 - 656*s; y = H - 665*s;
+    /* HAIR-TOUCH framing (the user's crux, 2026-11-18): on mobile the top of his hair must TOUCH
+       the bottom of the green "ai-creator" script. Measured on the 390x844 capture of the previous
+       build: script lower edge = 10 + 0.508*W screen px (its top is 12 + 96*(W/430) + 14vw and the
+       glyphs end ~0.145W lower — both terms scale with W), hair top sits at frame y 29 in the
+       1280x720 frame, and the old pose (s = W/640, bottom anchor 665) left a 245px gap — pure
+       translation could never close it (max extra lift at that scale was ~34px), so the figure is
+       now SCALED UP until the hair reaches the script, and bottom-anchored between frame y 665
+       (waist) and 720 (photo's bottom edge) — the cut always lands at the waist or below, as he
+       allowed. Person stays centred on frame x 656. On exotic aspects where the old framing was
+       larger, the old scale wins and the anchor clamps back to the old waist line, so nothing
+       regresses. Mobile only; the desktop pose below is untouched. */
+    var target = 10 + 0.508*W;
+    var sT = (H - target)/691, sO = Math.min(W/640, 0.72*H/720);
+    s = Math.max(sT, sO);
+    var anchor = 29 + (H - target)/s;
+    if(anchor > 720) anchor = 720; if(anchor < 665) anchor = 665;
+    x = W/2 - 656*s; y = H - anchor*s;
     return {x:x, y:y, s:s};
   }
   /* HEAD-TO-WAIST framing: the scale is capped by H/700 and the frame is bottom-anchored at frame
