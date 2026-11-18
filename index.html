@@ -45,20 +45,20 @@ img,video{display:block;max-width:100%}
 .bd-case{background-image:url(assets/asset-002.jpg);opacity:0}
 .stage.show-case .bd-case{opacity:1}
 .stage.show-case .bd-plate{opacity:0}
-.frame{position:absolute;left:0;top:0;width:1116px;height:720px;transform-origin:0 0;z-index:1;--m0:0px;--mt:0px;--mb:0px;--ms:0px}
+.frame{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;z-index:1;--m0:0px;--mt:0px;--mb:0px;--ms:0px}
 .frame.glide{transition:transform var(--glide) cubic-bezier(.65,0,.35,1)}
 .frame.d-fade.m-case{--mt:44px;--mb:34px;--ms:64px}
 .plate,.trans,.caseplate{-webkit-mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent calc(var(--o,0px) + var(--m0)),rgba(0,0,0,.35) calc(var(--o,0px) + var(--m0) + var(--mt)*.37),#000 calc(var(--o,0px) + var(--m0) + var(--mt)),#000 calc(100% - var(--ob,0px) - var(--mb)),transparent calc(100% - var(--ob,0px))),linear-gradient(90deg,transparent 0,#000 var(--ms),#000 calc(100% - var(--ms)),transparent 100%);mask-composite:intersect}
 .plate,.trans,.caseplate{transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1)}
 .trans,.caseplate{transition:--mt var(--glide) cubic-bezier(.65,0,.35,1),--m0 var(--glide) cubic-bezier(.65,0,.35,1),--mb var(--glide) cubic-bezier(.65,0,.35,1),--ms var(--glide) cubic-bezier(.65,0,.35,1),opacity .35s ease}
-.plate{position:absolute;left:0;top:0;width:1116px;height:720px;object-fit:cover;--o:0px;--ob:0px}
-.cut{position:absolute;left:0;top:0;width:1116px;height:720px;object-fit:cover;z-index:4}
-.wm{position:absolute;left:0;top:26px;width:1116px;height:205px;overflow:visible;z-index:3}
+.plate{position:absolute;left:0;top:0;width:1280px;height:720px;object-fit:cover;--o:0px;--ob:0px}
+.cut{position:absolute;left:0;top:0;width:1280px;height:720px;object-fit:cover;z-index:4}
+.wm{position:absolute;left:0;top:26px;width:1280px;height:205px;overflow:visible;z-index:3}
 .wm text{font-family:'Inter Tight';font-weight:900;font-size:208px;letter-spacing:-5px}
 .script{position:absolute;top:138px;left:70px;z-index:6;white-space:nowrap;font-family:'Caveat Brush',cursive;font-size:64px;line-height:1;color:#11402c;letter-spacing:-.5px;transform:rotate(-8deg);transform-origin:0 50%;text-shadow:0 0 6px #fff,0 0 14px #fff,0 0 22px rgba(255,255,255,.9),0 2px 14px rgba(255,255,255,.65)}
-.trans{position:absolute;inset:0;width:1116px;height:720px;object-fit:cover;opacity:0;z-index:6;--o:0px;--ob:0px}
-.caseplate{position:absolute;left:0;top:0;width:1116px;height:720px;object-fit:cover;opacity:0;z-index:7;--o:0px;--ob:0px}
-.screen{position:absolute;left:215px;top:91px;width:648px;height:396px;z-index:8;border-radius:3px;background:#fff;overflow:hidden;opacity:0}
+.trans{position:absolute;inset:0;width:1280px;height:720px;object-fit:cover;opacity:0;z-index:6;--o:0px;--ob:0px}
+.caseplate{position:absolute;left:0;top:0;width:1280px;height:720px;object-fit:cover;opacity:0;z-index:7;--o:0px;--ob:0px}
+.screen{position:absolute;left:305px;top:112px;width:669px;height:401px;z-index:8;border-radius:3px;background:#fff;overflow:hidden;opacity:0}
 .screen .swhite{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--accent)}
 .screen .swhite .a{font-family:'Fraunces',serif;font-weight:800;font-size:44px;letter-spacing:.02em;color:#101613}
 .screen .swhite .b{font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
@@ -277,9 +277,9 @@ body.busy .hint{visibility:hidden}
   <div class="backdrop" aria-hidden="true"><div class="bd bd-plate"></div><div class="bd bd-case"></div></div>
   <div class="frame" id="frame">
     <img class="plate" id="plate" src="assets/asset-004.jpg" alt="Ankit Nigam in a white office, leather jacket and tie, walkie-talkie to his ear, holding a silver laptop" />
-    <svg class="wm pre" id="wm" viewBox="0 0 1116 205" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="wm pre" id="wm" viewBox="0 0 1280 205" preserveAspectRatio="none" aria-hidden="true">
       <defs><linearGradient id="wmg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d100f" stop-opacity="1"/><stop offset=".5" stop-color="#232825" stop-opacity=".92"/><stop offset="1" stop-color="#8b968f" stop-opacity=".35"/></linearGradient></defs>
-      <text x="11" y="166" textLength="1094" lengthAdjust="spacingAndGlyphs" fill="url(#wmg1)">ANKIT NIGAM</text>
+      <text x="11" y="166" textLength="1256" lengthAdjust="spacingAndGlyphs" fill="url(#wmg1)">ANKIT NIGAM</text>
     </svg>
     <img class="cut" id="cut" src="assets/asset-001.png" alt="" />
     <div class="badge pre" id="badge">
@@ -303,9 +303,9 @@ body.busy .hint{visibility:hidden}
 </div>
 
 <div class="ui">
-  <svg class="m-only m-wm pre" id="mWm" viewBox="0 0 1116 190" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="m-only m-wm pre" id="mWm" viewBox="0 0 1280 190" preserveAspectRatio="none" aria-hidden="true">
     <defs><linearGradient id="wmg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d100f" stop-opacity="1"/><stop offset=".5" stop-color="#232825" stop-opacity=".92"/><stop offset="1" stop-color="#8b968f" stop-opacity=".5"/></linearGradient></defs>
-    <text x="30" y="162" textLength="1056" lengthAdjust="spacingAndGlyphs" fill="url(#wmg2)">ANKIT NIGAM</text>
+    <text x="30" y="162" textLength="1220" lengthAdjust="spacingAndGlyphs" fill="url(#wmg2)">ANKIT NIGAM</text>
   </svg>
   <div class="m-only m-script pre" id="mScript">ai-creator</div>
   <div class="m-only m-badge" id="mBadge"></div>
@@ -447,29 +447,29 @@ function setN(){ var n = isMobile() ? W/430 : Math.min(W/1440, H/900); root.styl
 function pose(m){
   var s, x, y;
   if(m === 'fill'){
-    /* the laptop screen rect (215,91 · 648x396 in the 1116x720 frame) grows until it covers the whole viewport */
-    s = Math.max(W/648, H/396) * 1.04;
-    return {x:W/2 - 539*s, y:H/2 - 289*s, s:s};
+    /* the laptop screen rect (305,112 · 669x401 in the 1280x720 frame) grows until it covers the whole viewport */
+    s = Math.max(W/669, H/401) * 1.04;
+    return {x:W/2 - 640*s, y:H/2 - 313*s, s:s};
   }
   if(m === 'case'){
-    /* fit the WHOLE laptop (frame rect x 110..1005, y 70..660) inside the viewport — same math on phone, tablet and PC */
-    s = Math.min(W/895, H/590) * 0.98;
-    return {x:W/2 - 557*s, y:H/2 - 365*s, s:s};
+    /* fit the WHOLE laptop (frame rect x 200..1080, y 78..644) inside the viewport — same math on phone, tablet and PC */
+    s = Math.min(W/880, H/566) * 0.98;
+    return {x:W/2 - 640*s, y:H/2 - 361*s, s:s};
   }
   if(isMobile()){
-    /* person bbox x 399..976, centre 687 — centre him, frame bottom sits at the viewport bottom.
-       Scale nudged up ~11% (W/580 vs W/650, height cap .66 vs .60) so he reads bigger on phones, not cropped. */
-    s = Math.min(W/580, 0.66*H/720); x = W/2 - 687*s; y = H - 700*s;
+    /* person torso bbox x 333..979, centre 656 — centre him, frame bottom sits at the viewport bottom.
+       Framed wide enough (W/720) that his face reads big and clear and the laptop he holds stays mostly in frame. */
+    s = Math.min(W/720, 0.66*H/720); x = W/2 - 656*s; y = H - 715*s;
     return {x:x, y:y, s:s};
   }
-  s = Math.max(W/1116, H/720);
-  x = (W - 1116*s)/2;
+  s = Math.max(W/1280, H/720);
+  x = (W - 1280*s)/2;
   /* cap the top crop at 10 frame px so the wordmark tops and his head (top at y 72) are never cropped */
   y = Math.min(0, Math.max(H - 720*s, -10*s));
   return {x:x, y:y, s:s};
 }
 function fitHero(p){
-  var vl = Math.max(0, -p.x/p.s), vr = Math.min(1116, (W - p.x)/p.s), pad = 18/p.s;
+  var vl = Math.max(0, -p.x/p.s), vr = Math.min(1280, (W - p.x)/p.s), pad = 18/p.s;
   wm.style.left = (vl + 0.6*pad) + 'px';
   wm.style.width = (vr - vl - 1.2*pad) + 'px';
   /* ID card now hangs on the LEFT — the empty white wall / desk side — so it never covers Ankit on the right.
